@@ -1,44 +1,130 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>客暦</title>
-  <meta name="theme-color" content="#0a0f16" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="客暦" />
-  <link rel="apple-touch-icon" href="./assets/app-icon.jpg" />
-  <style>
-    :root {--bg:#091019;--panel:#101a26;--panel-2:#132131;--line:#1f3145;--text:#eef6fb;--muted:#9cb2c6;--accent:#1ec7c3;--accent-2:#66f0d8;--shadow:0 16px 40px rgba(0,0,0,.35);--radius:24px;}
-    *{box-sizing:border-box} html,body{margin:0;padding:0;background:radial-gradient(circle at top, #122033 0%, #091019 55%, #060b11 100%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
-    body{min-height:100vh} .wrap{max-width:520px;margin:0 auto;padding:20px 16px 32px} .hero{background:linear-gradient(180deg, rgba(16,26,38,.96), rgba(10,17,26,.98));border:1px solid var(--line);border-radius:32px;padding:24px 18px;box-shadow:var(--shadow)}
-    .icon{width:112px;height:112px;border-radius:26px;display:block;margin:0 auto 18px;box-shadow:0 14px 30px rgba(0,0,0,.35)} h1{margin:0 0 10px;text-align:center;font-size:32px;line-height:1.1}
-    .lead{margin:0 auto 18px;text-align:center;color:var(--muted);font-size:16px;line-height:1.7;max-width:28em} .badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:18px}
-    .badge{padding:8px 12px;border-radius:999px;background:rgba(30,199,195,.1);border:1px solid rgba(30,199,195,.24);color:#d7fffb;font-size:13px} .card{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:16px;margin-top:16px}
-    .card h2{margin:0 0 10px;font-size:18px} .list{display:grid;gap:10px;margin:0;padding:0;list-style:none} .item{display:flex;gap:10px;align-items:flex-start;background:var(--panel-2);border:1px solid #203244;border-radius:18px;padding:12px}
-    .dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(180deg,var(--accent),var(--accent-2));margin-top:6px;flex:0 0 auto} .item strong{display:block;font-size:15px;margin-bottom:4px} .item span{display:block;color:var(--muted);font-size:14px;line-height:1.6}
-    .footer{margin-top:18px;color:var(--muted);font-size:13px;line-height:1.7;text-align:center} .install{display:flex;justify-content:center;margin-top:18px} .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 18px;border-radius:16px;text-decoration:none;color:#031116;background:linear-gradient(135deg,var(--accent),var(--accent-2));font-weight:700;box-shadow:0 10px 24px rgba(30,199,195,.28)}
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>客暦</title>
+<meta name="theme-color" content="#091019" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="客暦" />
+<link rel="apple-touch-icon" href="./assets/icon.jpg" />
+<style>
+:root{--bg:#091019;--panel:#111b26;--panel2:#162131;--line:#243448;--text:#eef6fb;--muted:#96abc0;--accent:#1ec7c3;--accent2:#66f0d8;--warn:#ffd56a;--danger:#ff8a7a}
+*{box-sizing:border-box}html,body{margin:0;padding:0;background:radial-gradient(circle at top,#122033 0%,#091019 55%,#060b11 100%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+body{min-height:100vh}
+.wrap{max-width:760px;margin:0 auto;padding:10px 10px 20px}
+.top,.panel{background:rgba(17,27,38,.96);border:1px solid var(--line);border-radius:18px;box-shadow:0 16px 40px rgba(0,0,0,.32)}
+.top{padding:10px}
+.header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+.title{display:flex;flex-direction:column;gap:2px}.title h1{margin:0;font-size:18px;line-height:1.1}.title span{font-size:12px;color:var(--muted)}
+.chip{font-size:11px;padding:6px 10px;border-radius:999px;background:rgba(30,199,195,.1);border:1px solid rgba(30,199,195,.22);color:#d7fffb;white-space:nowrap}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
+.btn{min-width:44px;min-height:44px;border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:12px;font-size:18px;display:flex;align-items:center;justify-content:center}
+.month{font-size:16px;font-weight:800}
+.weekdays,.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;width:100%}
+.weekday{text-align:center;font-size:11px;color:var(--muted);padding:2px 0}
+.day{min-height:88px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:6px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.day.empty{background:transparent;border:1px dashed rgba(36,52,72,.34)}
+.day.today{outline:2px solid rgba(30,199,195,.7)}
+.date{font-size:13px;font-weight:800;line-height:1}
+.mini{display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.sale{font-size:12px;font-weight:800;line-height:1.05;word-break:keep-all}
+.people{font-size:12px;color:var(--accent2);font-weight:800;line-height:1.05}
+.bar{height:6px;width:100%;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden}
+.bar span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.panel{padding:12px;margin-top:10px}
+.panel h2{margin:0 0 8px;font-size:15px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.stat{background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:10px}
+.stat .label{font-size:11px;color:var(--muted);margin-bottom:4px}.stat .value{font-size:18px;font-weight:900}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.tag{font-size:11px;padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.06);color:#dce8f2}
+.list{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:8px}.item{display:flex;gap:10px;align-items:flex-start;background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:10px}.dot{width:10px;height:10px;border-radius:50%;margin-top:5px;background:linear-gradient(180deg,var(--accent),var(--accent2))}.item strong{display:block;font-size:13px;margin-bottom:2px}.item span{display:block;font-size:12px;color:var(--muted);line-height:1.5}
+.small{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.6}
+</style>
 </head>
 <body>
-  <main class="wrap">
-    <section class="hero">
-      <img src="./assets/app-icon.jpg" alt="客暦のアプリアイコン" class="icon">
-      <h1>客暦</h1>
-      <p class="lead">バー・スナック向けの顧客管理アプリ用HTMLです。GitHub Pagesにアップして、そのままホーム画面追加の土台として使えます。</p>
-      <div class="badges"><div class="badge">顧客管理</div><div class="badge">売上記録</div><div class="badge">来店履歴</div></div>
-      <div class="install"><a class="btn" href="./assets/app-icon.jpg" download>アイコン画像を確認</a></div>
-    </section>
-    <section class="card">
-      <h2>GitHubに上げる手順</h2>
-      <ul class="list">
-        <li class="item"><div class="dot"></div><div><strong>1. このHTMLを index.html に変更</strong><span>GitHub Pages の公開用トップファイルとして使いやすくするためです。</span></div></li>
-        <li class="item"><div class="dot"></div><div><strong>2. assets フォルダごとアップロード</strong><span>アイコン画像の参照先は ./assets/app-icon.jpg です。</span></div></li>
-        <li class="item"><div class="dot"></div><div><strong>3. iPhoneでSafariから開く</strong><span>共有メニューからホーム画面に追加すると、アイコン付きで使えます。</span></div></li>
-      </ul>
-    </section>
-    <p class="footer">次はこの土台に、顧客一覧、カレンダー、保存機能を追加して本体アプリに育てられます。</p>
-  </main>
+<div class="wrap">
+  <section class="top">
+    <div class="header">
+      <div class="title"><h1>客暦</h1><span>顧客名・売上・来客数をカレンダーで管理</span></div>
+      <div class="chip">スマホ最適化</div>
+    </div>
+    <div class="nav">
+      <button class="btn" id="prevBtn">←</button>
+      <div class="month" id="monthLabel">2026年6月</div>
+      <button class="btn" id="nextBtn">→</button>
+    </div>
+    <div class="weekdays"><div class="weekday">日</div><div class="weekday">月</div><div class="weekday">火</div><div class="weekday">水</div><div class="weekday">木</div><div class="weekday">金</div><div class="weekday">土</div></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="panel" id="detailPanel">
+    <h2 id="detailTitle">6月13日の詳細</h2>
+    <div class="row">
+      <div class="stat"><div class="label">売上</div><div class="value" id="saleValue">¥49,000</div></div>
+      <div class="stat"><div class="label">来客数</div><div class="value" id="peopleValue">13人</div></div>
+    </div>
+    <div class="tags" id="tagArea"><span class="tag">常連</span><span class="tag">カラオケ多め</span><span class="tag">ボトルあり</span></div>
+    <ul class="list" id="logList"></ul>
+    <div class="small">日付をタップすると、その日の詳細を下に表示する想定です。実運用ではここを編集フォームに差し替えます。</div>
+  </section>
+</div>
+<script>
+const year = 2026, month = 5;
+const data = {
+  '2026-06-01': { sale: 38000, people: 9, tags:['常連','カラオケ多め','ボトルあり'], notes:['21:00 山田さん 来店','23:10 ボトル追加'] },
+  '2026-06-02': { sale: 24500, people: 6, tags:['静かめ','初来店'], notes:['22:00 新規2名'] },
+  '2026-06-03': { sale: 52000, people: 12, tags:['団体','歌多め'], notes:['20:30 団体利用'] },
+  '2026-06-04': { sale: 18000, people: 4, tags:['少人数'], notes:['遅めの時間帯'] },
+  '2026-06-05': { sale: 31500, people: 7, tags:['常連','焼酎'], notes:['21:15 佐藤さん'] },
+  '2026-06-06': { sale: 45000, people: 10, tags:['週末','ボトル'], notes:['22:00 混雑'] },
+  '2026-06-07': { sale: 27000, people: 5, tags:['ゆっくり'], notes:['常連中心'] },
+  '2026-06-08': { sale: 36000, people: 8, tags:['カラオケ多め'], notes:['歌の多い夜'] },
+  '2026-06-09': { sale: 29000, people: 6, tags:['静かめ'], notes:['平日ペース'] },
+  '2026-06-10': { sale: 41000, people: 11, tags:['常連','団体'], notes:['団体2組'] },
+  '2026-06-11': { sale: 20000, people: 4, tags:['少人数'], notes:['早い時間中心'] },
+  '2026-06-12': { sale: 33000, people: 7, tags:['常連'], notes:['常連多め'] },
+  '2026-06-13': { sale: 49000, people: 13, tags:['常連','カラオケ多め','ボトルあり'], notes:['20:00 常連A','22:30 ボトル更新'] },
+  '2026-06-14': { sale: 26000, people: 5, tags:['週末前'], notes:['落ち着いた営業'] },
+};
+const grid = document.getElementById('grid');
+const monthLabel = document.getElementById('monthLabel');
+const detailTitle = document.getElementById('detailTitle');
+const saleValue = document.getElementById('saleValue');
+const peopleValue = document.getElementById('peopleValue');
+const tagArea = document.getElementById('tagArea');
+const logList = document.getElementById('logList');
+function money(n){ return '¥' + n.toLocaleString('ja-JP'); }
+function shortMoney(n){ return (n/10000).toFixed(n >= 100000 ? 0 : 1).replace(/\.0$/,'') + '万'; }
+function renderDetail(date){
+  const d = data[date];
+  detailTitle.textContent = `${date.slice(5,7)}月${Number(date.slice(8,10))}日の詳細`;
+  saleValue.textContent = money(d.sale);
+  peopleValue.textContent = `${d.people}人`;
+  tagArea.innerHTML = d.tags.map(t=>`<span class="tag">${t}</span>`).join('');
+  logList.innerHTML = d.notes.map(n=>`<li class="item"><div class="dot"></div><div><strong>${n}</strong><span>メモとして保存できます。</span></div></li>`).join('');
+}
+function render(){
+  monthLabel.textContent = '2026年6月';
+  grid.innerHTML = '';
+  const firstDay = new Date(2026,5,1).getDay();
+  for(let i=0;i<firstDay;i++) grid.insertAdjacentHTML('beforeend', '<div class="day empty"></div>');
+  for(let d=1; d<=30; d++){
+    const date = `2026-06-${String(d).padStart(2,'0')}`;
+    const item = data[date];
+    if(item){
+      grid.insertAdjacentHTML('beforeend', `<button class="day ${d===1?'today':''}" data-date="${date}" style="appearance:none;text-align:left;color:inherit;cursor:pointer"><div class="date">${d}</div><div class="mini"><div class="sale">${shortMoney(item.sale)}</div><div class="people">👥 ${item.people}</div></div><div class="bar"><span style="width:${Math.min(100, item.sale/550)}%"></span></div></button>`);
+    }else{
+      grid.insertAdjacentHTML('beforeend', `<button class="day" data-date="${date}" style="appearance:none;text-align:left;color:inherit;cursor:pointer"><div class="date">${d}</div><div class="mini"><div class="sale">-</div><div class="people">未入力</div></div><div class="bar"><span style="width:0%"></span></div></button>`);
+    }
+  }
+  grid.querySelectorAll('[data-date]').forEach(el=>el.addEventListener('click',()=>renderDetail(el.dataset.date)));
+}
+document.getElementById('prevBtn').onclick = ()=>alert('この試作では月移動は未実装です。');
+document.getElementById('nextBtn').onclick = ()=>alert('この試作では月移動は未実装です。');
+render();
+renderDetail('2026-06-13');
+</script>
 </body>
 </html>
