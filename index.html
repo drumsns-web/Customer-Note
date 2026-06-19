@@ -12,8 +12,8 @@
 <style>
 :root{--panel:#111b26;--panel2:#162131;--line:#243448;--text:#eef6fb;--muted:#96abc0;--accent:#1ec7c3;--accent2:#66f0d8;--warn:#ffd56a;--danger:#ff8a7a}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;padding:0;background:radial-gradient(circle at top,#122033 0%,#091019 55%,#060b11 100%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
-body{min-height:100vh;font-size:16px}button,input,select,textarea{font:inherit}button{cursor:pointer;touch-action:manipulation}
-.wrap{max-width:960px;margin:0 auto;padding:10px 10px 22px}
+body{min-height:100vh;font-size:16px}button,input,select,textarea{font:inherit}button{cursor:pointer;touch-action:manipulation;position:relative;z-index:2}
+.wrap{max-width:960px;margin:0 auto;padding:10px 10px 22px;pointer-events:auto}
 .top,.panel{background:rgba(17,27,38,.96);border:1px solid var(--line);border-radius:18px;box-shadow:0 16px 40px rgba(0,0,0,.32)}
 .top{padding:10px}.header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}.title{display:flex;flex-direction:column;gap:2px}.title h1{margin:0;font-size:20px;line-height:1.1}.title span{font-size:12px;color:var(--muted)}
 .chip{font-size:11px;padding:6px 10px;border-radius:999px;background:rgba(30,199,195,.1);border:1px solid rgba(30,199,195,.22);color:#d7fffb;white-space:nowrap}
@@ -33,18 +33,18 @@ body{min-height:100vh;font-size:16px}button,input,select,textarea{font:inherit}b
 </style>
 </head>
 <body>
-<div class="lock" id="lockScreen">
-  <div class="lock-card">
+<div class="lock" id="lockScreen" style="pointer-events:auto">
+  <div class="lock-card" style="pointer-events:auto">
     <h2>ロック解除</h2>
     <p>暗証番号を入力してください。Face IDが使える端末ではFace IDでの解除も可能です。</p>
     <input id="pinInput" type="password" inputmode="numeric" placeholder="4〜8桁の暗証番号" maxlength="8" />
     <div class="lock-actions">
-      <button class="lock-btn primary" id="unlockBtn">PIN解除</button>
-      <button class="lock-btn secondary" id="setupBtn">初期設定</button>
+      <button type="button" class="lock-btn primary" id="unlockBtn" onclick="unlockPin()">PIN解除</button>
+      <button type="button" class="lock-btn secondary" id="setupBtn" onclick="setupPin()">初期設定</button>
     </div>
     <div class="lock-actions">
-      <button class="lock-btn secondary" id="enableFaceBtn">Face IDを有効化</button>
-      <button class="lock-btn secondary" id="unlockFaceBtn">Face IDで解除</button>
+      <button type="button" class="lock-btn secondary" id="enableFaceBtn" onclick="enableFace()">Face IDを有効化</button>
+      <button type="button" class="lock-btn secondary" id="unlockFaceBtn" onclick="unlockFace()">Face IDで解除</button>
     </div>
     <div class="lock-help">初回は「初期設定」で暗証番号を登録します。その後、Face ID対応端末ではPasskeyとしてFace IDを有効化できます。</div>
   </div>
@@ -111,10 +111,10 @@ function arrayBufferToBase64(buffer){ let binary=''; const bytes=new Uint8Array(
 function base64ToArrayBuffer(base64){ const binary=atob(base64); const bytes=new Uint8Array(binary.length); for(let i=0;i<binary.length;i++) bytes[i]=binary.charCodeAt(i); return bytes.buffer }
 function showLock(){ document.getElementById('lockScreen').style.display='flex'; document.getElementById('appRoot').style.display='none' }
 function showApp(){ document.getElementById('lockScreen').style.display='none'; document.getElementById('appRoot').style.display='block'; initApp() }
-function unlockPin(){ const v=document.getElementById('pinInput').value.trim(); if(!pin) return alert('先にPINを登録してください'); if(v===pin){ locked=false; saveLock(); showApp() } else alert('暗証番号が違います') }
-async function unlockFace(){ try{ if(!passkeyEnabled) return alert('先にFace IDを有効化してください'); await authenticatePasskey(); locked=false; saveLock(); showApp() }catch(e){ alert('Face ID解除に失敗しました。PINで解除してください。') } }
-async function enableFace(){ try{ if(!pin) return alert('先にPINを登録してください'); await registerPasskey(); alert('Face IDを有効化しました'); }catch(e){ alert('Face ID有効化に失敗しました: ' + e.message) } }
-function setupPin(){ const v=document.getElementById('pinInput').value.trim(); if(v.length < 4) return alert('4桁以上で設定してください'); savePin(v); locked=true; saveLock(); alert('暗証番号を登録しました。次回からこの番号で解除できます。') }
+window.unlockPin = function unlockPin(){ const v=document.getElementById('pinInput').value.trim(); if(!pin) return alert('先にPINを登録してください'); if(v===pin){ locked=false; saveLock(); showApp() } else alert('暗証番号が違います') }
+async window.unlockFace = async function unlockFace(){ try{ if(!passkeyEnabled) return alert('先にFace IDを有効化してください'); await authenticatePasskey(); locked=false; saveLock(); showApp() }catch(e){ alert('Face ID解除に失敗しました。PINで解除してください。') } }
+async window.enableFace = async function enableFace(){ try{ if(!pin) return alert('先にPINを登録してください'); await registerPasskey(); alert('Face IDを有効化しました'); }catch(e){ alert('Face ID有効化に失敗しました: ' + e.message) } }
+window.setupPin = function setupPin(){ const v=document.getElementById('pinInput').value.trim(); if(v.length < 4) return alert('4桁以上で設定してください'); savePin(v); locked=true; saveLock(); alert('暗証番号を登録しました。次回からこの番号で解除できます。') }
 function initApp(){ if(!data || typeof data !== 'object') data = defaultData(); updateTagFilter(); renderCalendar(); renderDetail(selectedDate); updateSearchResults(); bind() }
 function bind(){ document.getElementById('prevMonthBtn').onclick=()=>alert('まずは6月固定の本番版です。月移動は次の版で実装可能です。'); document.getElementById('nextMonthBtn').onclick=()=>alert('まずは6月固定の本番版です。月移動は次の版で実装可能です。'); document.getElementById('addRecordBtn').onclick=()=>openModal(selectedDate||'2026-06-13'); document.getElementById('saveBtn').onclick=()=>{saveData(); alert('保存しました')}; document.getElementById('loadBtn').onclick=importJson; document.getElementById('exportBtn').onclick=exportJson; document.getElementById('clearBtn').onclick=confirmClear; document.getElementById('closeModalBtn').onclick=closeModal; document.getElementById('modalBack').addEventListener('click',e=>{if(e.target.id==='modalBack') closeModal()}); document.getElementById('saveRecordBtn').onclick=saveRecord; document.getElementById('deleteRecordBtn').onclick=deleteRecord; document.getElementById('searchBtn').onclick=updateSearchResults; document.getElementById('searchInput').oninput=updateSearchResults; document.getElementById('tagFilter').onchange=updateSearchResults; document.getElementById('closeConfirmBtn').onclick=closeConfirm; document.getElementById('cancelClearBtn').onclick=closeConfirm; document.getElementById('confirmBack').addEventListener('click',e=>{if(e.target.id==='confirmBack') closeConfirm()}); document.getElementById('confirmClearBtn').onclick=()=>{closeConfirm(); clearAll()}; document.getElementById('undoBtn').onclick=()=>{}; window.addEventListener('resize',()=>drawChart(datesOfMonth(year,currentMonth))); document.getElementById('unlockBtn').onclick=unlockPin; document.getElementById('setupBtn').onclick=setupPin; document.getElementById('enableFaceBtn').onclick=enableFace; document.getElementById('unlockFaceBtn').onclick=unlockFace; document.getElementById('pinInput').addEventListener('keydown',e=>{if(e.key==='Enter') unlockPin()}); }
 document.getElementById('lockScreen').style.display = 'flex'; document.getElementById('appRoot').style.display = locked ? 'none' : 'block'; if(locked) showLock(); else showApp();
