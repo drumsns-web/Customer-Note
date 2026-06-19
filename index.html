@@ -2,129 +2,243 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>客暦</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no" />
+<title>Customer Note</title>
 <meta name="theme-color" content="#091019" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-<meta name="apple-mobile-web-app-title" content="客暦" />
+<meta name="apple-mobile-web-app-title" content="Customer Note" />
 <link rel="apple-touch-icon" href="./assets/icon.jpg" />
 <style>
-:root{--bg:#091019;--panel:#111b26;--panel2:#162131;--line:#243448;--text:#eef6fb;--muted:#96abc0;--accent:#1ec7c3;--accent2:#66f0d8;--warn:#ffd56a;--danger:#ff8a7a}
-*{box-sizing:border-box}html,body{margin:0;padding:0;background:radial-gradient(circle at top,#122033 0%,#091019 55%,#060b11 100%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
-body{min-height:100vh}
-.wrap{max-width:760px;margin:0 auto;padding:10px 10px 20px}
+:root{--bg:#091019;--panel:#111b26;--panel2:#162131;--line:#243448;--text:#eef6fb;--muted:#96abc0;--accent:#1ec7c3;--accent2:#66f0d8;--warn:#ffd56a;--danger:#ff8a7a;--good:#76f59d}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;padding:0;background:radial-gradient(circle at top,#122033 0%,#091019 55%,#060b11 100%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+body{min-height:100vh;font-size:16px}button,input,select,textarea{font:inherit}
+.wrap{max-width:960px;margin:0 auto;padding:10px 10px 22px}
 .top,.panel{background:rgba(17,27,38,.96);border:1px solid var(--line);border-radius:18px;box-shadow:0 16px 40px rgba(0,0,0,.32)}
 .top{padding:10px}
-.header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
-.title{display:flex;flex-direction:column;gap:2px}.title h1{margin:0;font-size:18px;line-height:1.1}.title span{font-size:12px;color:var(--muted)}
+.header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}.title{display:flex;flex-direction:column;gap:2px}.title h1{margin:0;font-size:20px;line-height:1.1}.title span{font-size:12px;color:var(--muted)}
 .chip{font-size:11px;padding:6px 10px;border-radius:999px;background:rgba(30,199,195,.1);border:1px solid rgba(30,199,195,.22);color:#d7fffb;white-space:nowrap}
-.nav{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
-.btn{min-width:44px;min-height:44px;border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:12px;font-size:18px;display:flex;align-items:center;justify-content:center}
-.month{font-size:16px;font-weight:800}
-.weekdays,.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;width:100%}
-.weekday{text-align:center;font-size:11px;color:var(--muted);padding:2px 0}
-.day{min-height:88px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:6px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
-.day.empty{background:transparent;border:1px dashed rgba(36,52,72,.34)}
-.day.today{outline:2px solid rgba(30,199,195,.7)}
-.date{font-size:13px;font-weight:800;line-height:1}
-.mini{display:flex;flex-direction:column;gap:4px;align-items:flex-start}
-.sale{font-size:12px;font-weight:800;line-height:1.05;word-break:keep-all}
-.people{font-size:12px;color:var(--accent2);font-weight:800;line-height:1.05}
-.bar{height:6px;width:100%;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden}
-.bar span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
-.panel{padding:12px;margin-top:10px}
-.panel h2{margin:0 0 8px;font-size:15px}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.stat{background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:10px}
-.stat .label{font-size:11px;color:var(--muted);margin-bottom:4px}.stat .value{font-size:18px;font-weight:900}
-.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.tag{font-size:11px;padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.06);color:#dce8f2}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}.btn{min-width:48px;min-height:48px;border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:14px;font-size:18px;display:flex;align-items:center;justify-content:center}.month{font-size:18px;font-weight:900}
+.weekdays,.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;width:100%}.weekday{text-align:center;font-size:12px;color:var(--muted);padding:2px 0}
+.day{min-height:92px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:6px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;text-align:left;color:inherit}.day.empty{background:transparent;border:1px dashed rgba(36,52,72,.34)}.day.today{outline:2px solid rgba(30,199,195,.7)}.date{font-size:13px;font-weight:900;line-height:1}
+.mini{display:flex;flex-direction:column;gap:4px;align-items:flex-start}.sale{font-size:12px;font-weight:900;line-height:1.05;word-break:keep-all}.people{font-size:12px;color:var(--accent2);font-weight:900;line-height:1.05}.bar{height:6px;width:100%;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden}.bar span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.main{display:grid;grid-template-columns:1.35fr .95fr;gap:10px;margin-top:10px}.panel{padding:12px}.panel h2{margin:0 0 10px;font-size:16px}.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.stat{background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:10px}.label{font-size:11px;color:var(--muted);margin-bottom:4px}.value{font-size:19px;font-weight:900}.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.tag{font-size:11px;padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.06);color:#dce8f2}
 .list{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:8px}.item{display:flex;gap:10px;align-items:flex-start;background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:10px}.dot{width:10px;height:10px;border-radius:50%;margin-top:5px;background:linear-gradient(180deg,var(--accent),var(--accent2))}.item strong{display:block;font-size:13px;margin-bottom:2px}.item span{display:block;font-size:12px;color:var(--muted);line-height:1.5}
-.small{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.6}
+.controls{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}.cbtn{min-height:46px;border:none;border-radius:14px;background:linear-gradient(135deg,#1d3147,#152131);color:var(--text);font-weight:800}.cbtn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#021116}.cbtn.warn{background:linear-gradient(135deg,#ffd56a,#ffb84f);color:#251600}
+.searchbox{display:grid;gap:8px}.searchbox input,.searchbox textarea,.searchbox select{width:100%;min-height:46px;border-radius:14px;border:1px solid var(--line);background:#0f1722;color:var(--text);padding:12px 12px}.searchbox textarea{min-height:86px;resize:vertical}.split{display:grid;grid-template-columns:1fr 1fr;gap:8px}.results{margin-top:8px;display:grid;gap:8px;max-height:260px;overflow:auto}.result{background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:10px}.result b{display:block;font-size:14px;margin-bottom:4px}.result small{color:var(--muted);display:block;line-height:1.4}.tiny{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.6}
+.modalback{position:fixed;inset:0;background:rgba(0,0,0,.58);display:none;align-items:flex-end;justify-content:center;padding:12px;z-index:20}.modal{width:min(100%,700px);background:#0f1722;border:1px solid var(--line);border-radius:18px;padding:12px;box-shadow:0 20px 50px rgba(0,0,0,.45)}.modalhead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}.modalhead h3{margin:0;font-size:16px}.xbtn{min-width:42px;min-height:42px;border:none;border-radius:12px;background:#1a2432;color:var(--text);font-size:18px}.field{display:grid;gap:6px;margin-bottom:8px}.field label{font-size:12px;color:var(--muted)}.field input,.field textarea,.field select{width:100%;min-height:46px;border-radius:14px;border:1px solid var(--line);background:#0c121b;color:var(--text);padding:12px 12px}.field textarea{min-height:90px;resize:vertical}.modalgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.modalactions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+@media (max-width: 860px){.main{grid-template-columns:1fr}.grid{gap:3px}.day{min-height:84px}.controls{grid-template-columns:repeat(2,1fr)}}
+@media (max-width: 430px){.wrap{padding:8px}.top,.panel{border-radius:16px}.title h1{font-size:18px}.month{font-size:16px}.day{min-height:78px;padding:5px}.date,.sale,.people{font-size:11px}.row,.modalgrid{grid-template-columns:1fr}.controls{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="wrap">
   <section class="top">
     <div class="header">
-      <div class="title"><h1>客暦</h1><span>顧客名・売上・来客数をカレンダーで管理</span></div>
-      <div class="chip">スマホ最適化</div>
+      <div class="title"><h1>Customer Note</h1><span>顧客・売上・来店頻度・出来事メモを一括管理</span></div>
+      <div class="chip">保存対応 / 検索対応</div>
     </div>
     <div class="nav">
-      <button class="btn" id="prevBtn">←</button>
-      <div class="month" id="monthLabel">2026年6月</div>
-      <button class="btn" id="nextBtn">→</button>
+      <button class="btn" id="prevMonthBtn" aria-label="前の月">←</button>
+      <div class="month" id="monthLabel"></div>
+      <button class="btn" id="nextMonthBtn" aria-label="次の月">→</button>
     </div>
     <div class="weekdays"><div class="weekday">日</div><div class="weekday">月</div><div class="weekday">火</div><div class="weekday">水</div><div class="weekday">木</div><div class="weekday">金</div><div class="weekday">土</div></div>
-    <div class="grid" id="grid"></div>
+    <div class="grid" id="calendarGrid"></div>
+    <div class="controls">
+      <button class="cbtn primary" id="addRecordBtn">＋記録</button>
+      <button class="cbtn" id="saveBtn">保存</button>
+      <button class="cbtn" id="loadBtn">読込</button>
+      <button class="cbtn warn" id="exportBtn">書出</button>
+    </div>
   </section>
 
-  <section class="panel" id="detailPanel">
-    <h2 id="detailTitle">6月13日の詳細</h2>
-    <div class="row">
-      <div class="stat"><div class="label">売上</div><div class="value" id="saleValue">¥49,000</div></div>
-      <div class="stat"><div class="label">来客数</div><div class="value" id="peopleValue">13人</div></div>
-    </div>
-    <div class="tags" id="tagArea"><span class="tag">常連</span><span class="tag">カラオケ多め</span><span class="tag">ボトルあり</span></div>
-    <ul class="list" id="logList"></ul>
-    <div class="small">日付をタップすると、その日の詳細を下に表示する想定です。実運用ではここを編集フォームに差し替えます。</div>
-  </section>
+  <div class="main">
+    <section class="panel">
+      <h2 id="detailTitle">日別詳細</h2>
+      <div class="row">
+        <div class="stat"><div class="label">売上</div><div class="value" id="saleValue">-</div></div>
+        <div class="stat"><div class="label">来客数</div><div class="value" id="peopleValue">-</div></div>
+      </div>
+      <div class="tags" id="tagArea"></div>
+      <ul class="list" id="logList"></ul>
+      <div class="tiny">日付をタップすると詳細を切り替えられます。ここから編集もできます。</div>
+    </section>
+
+    <section class="panel">
+      <h2>顧客検索</h2>
+      <div class="searchbox">
+        <input id="searchInput" placeholder="名前 / 特徴 / メモ / タグで検索" />
+        <div class="split">
+          <select id="tagFilter"><option value="">全タグ</option></select>
+          <button class="cbtn primary" id="searchBtn">検索</button>
+        </div>
+        <div class="results" id="searchResults"></div>
+        <div class="tiny">例: 先月 グラス割った, 常連, カラオケ, ボトル, 接待 などで候補を絞れます。メモ本文も検索対象です。</div>
+      </div>
+      <h2 style="margin-top:14px">月まとめ</h2>
+      <div class="row">
+        <div class="stat"><div class="label">月売上</div><div class="value" id="monthSales">-</div></div>
+        <div class="stat"><div class="label">来店日数</div><div class="value" id="monthVisits">-</div></div>
+      </div>
+      <canvas id="barChart" width="800" height="260" style="width:100%;margin-top:10px;background:linear-gradient(180deg,#0d1520,#0b1118);border:1px solid var(--line);border-radius:14px"></canvas>
+    </section>
+  </div>
 </div>
+
+<div class="modalback" id="modalBack">
+  <div class="modal">
+    <div class="modalhead"><h3 id="modalTitle">記録を追加</h3><button class="xbtn" id="closeModalBtn">×</button></div>
+    <div class="modalgrid">
+      <div class="field"><label>日付</label><input id="fDate" type="date" /></div>
+      <div class="field"><label>顧客名</label><input id="fName" type="text" placeholder="例: 山田太郎" /></div>
+    </div>
+    <div class="modalgrid">
+      <div class="field"><label>売上</label><input id="fSale" type="number" min="0" step="1" placeholder="例: 49000" /></div>
+      <div class="field"><label>来客数</label><input id="fPeople" type="number" min="0" step="1" placeholder="例: 13" /></div>
+    </div>
+    <div class="field"><label>タグ / 特徴（カンマ区切り）</label><input id="fTags" type="text" placeholder="常連, カラオケ多め, ボトルあり" /></div>
+    <div class="field"><label>その日の出来事メモ</label><textarea id="fMemo" placeholder="例: 先月グラス割ったお客様。ボトル更新。団体利用。"></textarea></div>
+    <div class="field"><label>追記メモ（複数行）</label><textarea id="fNotes" placeholder="1行ずつ入力できます。検索にも使われます。"></textarea></div>
+    <div class="modalactions">
+      <button class="cbtn primary" id="saveRecordBtn">保存する</button>
+      <button class="cbtn" id="deleteRecordBtn">この日を削除</button>
+    </div>
+  </div>
+</div>
+
 <script>
-const year = 2026, month = 5;
-const data = {
-  '2026-06-01': { sale: 38000, people: 9, tags:['常連','カラオケ多め','ボトルあり'], notes:['21:00 山田さん 来店','23:10 ボトル追加'] },
-  '2026-06-02': { sale: 24500, people: 6, tags:['静かめ','初来店'], notes:['22:00 新規2名'] },
-  '2026-06-03': { sale: 52000, people: 12, tags:['団体','歌多め'], notes:['20:30 団体利用'] },
-  '2026-06-04': { sale: 18000, people: 4, tags:['少人数'], notes:['遅めの時間帯'] },
-  '2026-06-05': { sale: 31500, people: 7, tags:['常連','焼酎'], notes:['21:15 佐藤さん'] },
-  '2026-06-06': { sale: 45000, people: 10, tags:['週末','ボトル'], notes:['22:00 混雑'] },
-  '2026-06-07': { sale: 27000, people: 5, tags:['ゆっくり'], notes:['常連中心'] },
-  '2026-06-08': { sale: 36000, people: 8, tags:['カラオケ多め'], notes:['歌の多い夜'] },
-  '2026-06-09': { sale: 29000, people: 6, tags:['静かめ'], notes:['平日ペース'] },
-  '2026-06-10': { sale: 41000, people: 11, tags:['常連','団体'], notes:['団体2組'] },
-  '2026-06-11': { sale: 20000, people: 4, tags:['少人数'], notes:['早い時間中心'] },
-  '2026-06-12': { sale: 33000, people: 7, tags:['常連'], notes:['常連多め'] },
-  '2026-06-13': { sale: 49000, people: 13, tags:['常連','カラオケ多め','ボトルあり'], notes:['20:00 常連A','22:30 ボトル更新'] },
-  '2026-06-14': { sale: 26000, people: 5, tags:['週末前'], notes:['落ち着いた営業'] },
-};
-const grid = document.getElementById('grid');
-const monthLabel = document.getElementById('monthLabel');
-const detailTitle = document.getElementById('detailTitle');
-const saleValue = document.getElementById('saleValue');
-const peopleValue = document.getElementById('peopleValue');
-const tagArea = document.getElementById('tagArea');
-const logList = document.getElementById('logList');
-function money(n){ return '¥' + n.toLocaleString('ja-JP'); }
-function shortMoney(n){ return (n/10000).toFixed(n >= 100000 ? 0 : 1).replace(/\.0$/,'') + '万'; }
-function renderDetail(date){
-  const d = data[date];
-  detailTitle.textContent = `${date.slice(5,7)}月${Number(date.slice(8,10))}日の詳細`;
-  saleValue.textContent = money(d.sale);
-  peopleValue.textContent = `${d.people}人`;
-  tagArea.innerHTML = d.tags.map(t=>`<span class="tag">${t}</span>`).join('');
-  logList.innerHTML = d.notes.map(n=>`<li class="item"><div class="dot"></div><div><strong>${n}</strong><span>メモとして保存できます。</span></div></li>`).join('');
+const LS_KEY = 'customer_note_data_v1';
+const year = 2026;
+let currentMonth = 5;
+let selectedDate = '2026-06-13';
+let editingDate = null;
+let data = loadData();
+
+function defaultData(){
+  return {
+    '2026-06-01': {name:'山田太郎', sale:38000, people:9, tags:['常連','カラオケ多め','ボトルあり'], memo:'21:00来店。ボトル追加。', notes:['21:00 山田さん 来店','23:10 ボトル追加']},
+    '2026-06-02': {name:'鈴木一郎', sale:24500, people:6, tags:['静かめ','初来店'], memo:'新規2名。', notes:['22:00 新規2名']},
+    '2026-06-03': {name:'佐藤花子', sale:52000, people:12, tags:['団体','歌多め'], memo:'団体利用。', notes:['20:30 団体利用']},
+    '2026-06-04': {name:'田中次郎', sale:18000, people:4, tags:['少人数'], memo:'遅めの時間帯。', notes:['遅めの時間帯']},
+    '2026-06-05': {name:'山田太郎', sale:31500, people:7, tags:['常連','焼酎'], memo:'21:15来店。', notes:['21:15 佐藤さん']},
+    '2026-06-06': {name:'鈴木一郎', sale:45000, people:10, tags:['週末','ボトル'], memo:'混雑。', notes:['22:00 混雑']},
+    '2026-06-07': {name:'田中次郎', sale:27000, people:5, tags:['ゆっくり'], memo:'常連中心。', notes:['常連中心']},
+    '2026-06-08': {name:'佐藤花子', sale:36000, people:8, tags:['カラオケ多め'], memo:'歌の多い夜。', notes:['歌の多い夜']},
+    '2026-06-09': {name:'山田太郎', sale:29000, people:6, tags:['静かめ'], memo:'平日ペース。', notes:['平日ペース']},
+    '2026-06-10': {name:'鈴木一郎', sale:41000, people:11, tags:['常連','団体'], memo:'団体2組。', notes:['団体2組']},
+    '2026-06-11': {name:'田中次郎', sale:20000, people:4, tags:['少人数'], memo:'早い時間中心。', notes:['早い時間中心']},
+    '2026-06-12': {name:'佐藤花子', sale:33000, people:7, tags:['常連'], memo:'常連多め。', notes:['常連多め']},
+    '2026-06-13': {name:'山田太郎', sale:49000, people:13, tags:['常連','カラオケ多め','ボトルあり'], memo:'先月グラス割ったお客様。20:00常連A、22:30ボトル更新。', notes:['先月グラス割ったお客様','20:00 常連A','22:30 ボトル更新']},
+    '2026-06-14': {name:'鈴木一郎', sale:26000, people:5, tags:['週末前'], memo:'落ち着いた営業。', notes:['落ち着いた営業']},
+  };
 }
-function render(){
-  monthLabel.textContent = '2026年6月';
-  grid.innerHTML = '';
-  const firstDay = new Date(2026,5,1).getDay();
-  for(let i=0;i<firstDay;i++) grid.insertAdjacentHTML('beforeend', '<div class="day empty"></div>');
-  for(let d=1; d<=30; d++){
-    const date = `2026-06-${String(d).padStart(2,'0')}`;
+function loadData(){ try{ const s=localStorage.getItem(LS_KEY); return s ? JSON.parse(s) : defaultData(); }catch(e){ return defaultData(); } }
+function saveData(){ localStorage.setItem(LS_KEY, JSON.stringify(data)); }
+function money(n){ return '¥' + Number(n||0).toLocaleString('ja-JP'); }
+function shortMoney(n){ const v = Number(n||0); return (v/10000).toFixed(v >= 100000 ? 0 : 1).replace(/\.0$/,'') + '万'; }
+function ymLabel(y,m){ return `${y}年${m+1}月`; }
+function pad(n){ return String(n).padStart(2,'0'); }
+function datesOfMonth(y,m){ const end = new Date(y,m+1,0).getDate(); return Array.from({length:end},(_,i)=>`${y}-${pad(m+1)}-${pad(i+1)}`); }
+function allSearchText(item){ return [item.name||'', item.memo||'', ...(item.tags||[]), ...(item.notes||[])].join(' ').toLowerCase(); }
+function renderCalendar(){
+  document.getElementById('monthLabel').textContent = ymLabel(year,currentMonth);
+  const grid = document.getElementById('calendarGrid'); grid.innerHTML='';
+  const firstDay = new Date(year,currentMonth,1).getDay();
+  for(let i=0;i<firstDay;i++) grid.insertAdjacentHTML('beforeend','<div class="day empty"></div>');
+  const endDay = new Date(year,currentMonth+1,0).getDate();
+  for(let d=1; d<=endDay; d++){
+    const date = `${year}-${pad(currentMonth+1)}-${pad(d)}`;
     const item = data[date];
-    if(item){
-      grid.insertAdjacentHTML('beforeend', `<button class="day ${d===1?'today':''}" data-date="${date}" style="appearance:none;text-align:left;color:inherit;cursor:pointer"><div class="date">${d}</div><div class="mini"><div class="sale">${shortMoney(item.sale)}</div><div class="people">👥 ${item.people}</div></div><div class="bar"><span style="width:${Math.min(100, item.sale/550)}%"></span></div></button>`);
-    }else{
-      grid.insertAdjacentHTML('beforeend', `<button class="day" data-date="${date}" style="appearance:none;text-align:left;color:inherit;cursor:pointer"><div class="date">${d}</div><div class="mini"><div class="sale">-</div><div class="people">未入力</div></div><div class="bar"><span style="width:0%"></span></div></button>`);
-    }
+    const saleText = item ? shortMoney(item.sale) : '-';
+    const peopleText = item ? `👥 ${item.people}` : '未入力';
+    const width = item ? Math.min(100, Math.round(item.sale/550)) : 0;
+    const isSel = date === selectedDate ? 'today' : '';
+    grid.insertAdjacentHTML('beforeend', `<button class="day ${isSel}" data-date="${date}" type="button"><div class="date">${d}</div><div class="mini"><div class="sale">${saleText}</div><div class="people">${peopleText}</div></div><div class="bar"><span style="width:${width}%"></span></div></button>`);
   }
-  grid.querySelectorAll('[data-date]').forEach(el=>el.addEventListener('click',()=>renderDetail(el.dataset.date)));
+  grid.querySelectorAll('[data-date]').forEach(btn=>btn.addEventListener('click',()=>selectDate(btn.dataset.date)));
 }
-document.getElementById('prevBtn').onclick = ()=>alert('この試作では月移動は未実装です。');
-document.getElementById('nextBtn').onclick = ()=>alert('この試作では月移動は未実装です。');
-render();
-renderDetail('2026-06-13');
+function renderDetail(date){
+  const item = data[date] || {name:'未入力', sale:0, people:0, tags:[], memo:'', notes:[]};
+  selectedDate = date;
+  document.getElementById('detailTitle').textContent = `${date.slice(5,7)}月${Number(date.slice(8,10))}日の詳細`;
+  document.getElementById('saleValue').textContent = item.sale ? money(item.sale) : '-';
+  document.getElementById('peopleValue').textContent = item.people ? `${item.people}人` : '-';
+  document.getElementById('tagArea').innerHTML = (item.tags||[]).map(t=>`<span class="tag">${escapeHtml(t)}</span>`).join('') || '<span class="tag">未設定</span>';
+  const notes = (item.notes||[]).slice();
+  if(item.memo) notes.unshift(item.memo);
+  document.getElementById('logList').innerHTML = notes.length ? notes.map(n=>`<li class="item"><div class="dot"></div><div><strong>${escapeHtml(n)}</strong><span>検索対象のメモとして保存されています。</span></div></li>`).join('') : '<li class="item"><div class="dot"></div><div><strong>記録なし</strong><span>この日の内容を追加できます。</span></div></li>';
+  renderCalendar(); updateMonthlySummary(); updateSearchResults(); fillModal(date);
+}
+function fillModal(date){
+  const item = data[date] || {name:'', sale:'', people:'', tags:[], memo:'', notes:[]};
+  document.getElementById('fDate').value = date;
+  document.getElementById('fName').value = item.name || '';
+  document.getElementById('fSale').value = item.sale || '';
+  document.getElementById('fPeople').value = item.people || '';
+  document.getElementById('fTags').value = (item.tags||[]).join(', ');
+  document.getElementById('fMemo').value = item.memo || '';
+  document.getElementById('fNotes').value = (item.notes||[]).join('\n');
+}
+function selectDate(date){ editingDate = null; renderDetail(date); }
+function openModal(date){ editingDate = date || selectedDate; fillModal(editingDate); document.getElementById('modalTitle').textContent = data[editingDate] ? '記録を編集' : '記録を追加'; document.getElementById('modalBack').style.display='flex'; }
+function closeModal(){ document.getElementById('modalBack').style.display='none'; }
+function updateMonthlySummary(){
+  const dates = datesOfMonth(year,currentMonth); let sales = 0, visitDays = 0;
+  for(const d of dates){ if(data[d]){ sales += Number(data[d].sale||0); visitDays++; } }
+  document.getElementById('monthSales').textContent = money(sales);
+  document.getElementById('monthVisits').textContent = `${visitDays}日`;
+  drawChart(dates);
+}
+function drawChart(dates){
+  const c = document.getElementById('barChart'); const ctx = c.getContext('2d'); const dpr = window.devicePixelRatio || 1; const w = c.clientWidth || 800; const h = 260;
+  c.width = Math.round(w*dpr); c.height = Math.round(h*dpr); ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,w,h);
+  const sales = dates.map(d => Number((data[d] && data[d].sale) || 0)); const max = Math.max(1, ...sales); const padL = 40, padR = 12, padT = 16, padB = 28;
+  ctx.fillStyle = '#0b1118'; ctx.fillRect(0,0,w,h); ctx.strokeStyle = 'rgba(255,255,255,.08)'; ctx.lineWidth = 1;
+  for(let i=0;i<4;i++){ const y = padT + (h-padT-padB)/3*i; ctx.beginPath(); ctx.moveTo(padL,y); ctx.lineTo(w-padR,y); ctx.stroke(); }
+  const bw = (w-padL-padR) / dates.length;
+  dates.forEach((d,i)=>{ const val=sales[i]; const bh = (h-padT-padB)*(val/max); const x = padL + i*bw + bw*0.18; const y = h-padB-bh; const barw = bw*0.64; const grad = ctx.createLinearGradient(0,y,0,h-padB); grad.addColorStop(0,'#1ec7c3'); grad.addColorStop(1,'#66f0d8'); ctx.fillStyle = grad; roundRect(ctx,x,y,barw,bh,8); ctx.fill(); });
+  ctx.fillStyle = '#b9c9d8'; ctx.font = '12px -apple-system,BlinkMacSystemFont,sans-serif'; ctx.fillText('月別売上', 10, 16);
+}
+function roundRect(ctx,x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+function updateTagFilter(){ const tags = new Set(); Object.values(data).forEach(v => (v.tags||[]).forEach(t => tags.add(t))); const sel = document.getElementById('tagFilter'); const current = sel.value; sel.innerHTML = '<option value="">全タグ</option>' + [...tags].sort().map(t=>`<option value="${escapeAttr(t)}">${escapeHtml(t)}</option>`).join(''); sel.value = current; }
+function matches(item, q, tag){ const text = allSearchText(item); const okq = !q || text.includes(q.toLowerCase()); const okt = !tag || (item.tags||[]).includes(tag); return okq && okt; }
+function updateSearchResults(){
+  const q = document.getElementById('searchInput').value.trim(); const tag = document.getElementById('tagFilter').value; const res = Object.entries(data).filter(([date,item])=>matches(item,q,tag)).sort((a,b)=>b[0].localeCompare(a[0])); const box = document.getElementById('searchResults');
+  if(!res.length){ box.innerHTML = '<div class="result"><b>候補なし</b><small>検索条件を変えてください。</small></div>'; return; }
+  box.innerHTML = res.slice(0,20).map(([date,item])=>{ const excerpt = (item.memo || item.notes?.join(' / ') || ''); return `<button class="result" type="button" data-date="${date}" style="text-align:left;color:inherit;cursor:pointer"><b>${escapeHtml(date)} / ${escapeHtml(item.name||'未設定')}</b><small>売上 ${money(item.sale||0)} ・ 来客 ${item.people||0}人<br>${escapeHtml((item.tags||[]).join(' / ') || 'タグなし')}<br>${escapeHtml(excerpt.slice(0,120))}</small></button>`; }).join('');
+  box.querySelectorAll('[data-date]').forEach(btn=>btn.addEventListener('click',()=>{ selectDate(btn.dataset.date); document.getElementById('modalBack').style.display='none'; }));
+}
+function escapeHtml(s){ return String(s||'').replace(/[&<>"']/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[m])); }
+function escapeAttr(s){ return String(s||'').replace(/"/g,'&quot;'); }
+function saveRecord(){
+  const date = document.getElementById('fDate').value; if(!date) return alert('日付を入力してください');
+  const name = document.getElementById('fName').value.trim(); const sale = Number(document.getElementById('fSale').value || 0); const people = Number(document.getElementById('fPeople').value || 0);
+  const tags = document.getElementById('fTags').value.split(',').map(s=>s.trim()).filter(Boolean); const memo = document.getElementById('fMemo').value.trim(); const notes = document.getElementById('fNotes').value.split(/\n+/).map(s=>s.trim()).filter(Boolean);
+  data[date] = { name, sale, people, tags, memo, notes };
+  saveData(); updateTagFilter(); closeModal(); selectDate(date);
+}
+function deleteRecord(){ const date = document.getElementById('fDate').value; if(!date || !data[date]) return; if(!confirm('この日の記録を削除しますか？')) return; delete data[date]; saveData(); updateTagFilter(); closeModal(); selectDate(date); }
+function exportJson(){ const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'}); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'customer-note-backup.json'; a.click(); }
+function importJson(){ const inp = document.createElement('input'); inp.type='file'; inp.accept='application/json'; inp.onchange = async () => { const file = inp.files && inp.files[0]; if(!file) return; const txt = await file.text(); data = JSON.parse(txt); saveData(); updateTagFilter(); selectDate(selectedDate); alert('読み込みました'); }; inp.click(); }
+function bind(){
+  document.getElementById('prevMonthBtn').onclick = () => alert('まずは6月固定の本番版です。月移動は次の版で実装可能です。');
+  document.getElementById('nextMonthBtn').onclick = () => alert('まずは6月固定の本番版です。月移動は次の版で実装可能です。');
+  document.getElementById('addRecordBtn').onclick = () => openModal(selectedDate || '2026-06-13');
+  document.getElementById('saveBtn').onclick = () => { saveData(); alert('保存しました'); };
+  document.getElementById('loadBtn').onclick = importJson;
+  document.getElementById('exportBtn').onclick = exportJson;
+  document.getElementById('closeModalBtn').onclick = closeModal;
+  document.getElementById('modalBack').addEventListener('click', e => { if(e.target.id === 'modalBack') closeModal(); });
+  document.getElementById('saveRecordBtn').onclick = saveRecord;
+  document.getElementById('deleteRecordBtn').onclick = deleteRecord;
+  document.getElementById('searchBtn').onclick = updateSearchResults;
+  document.getElementById('searchInput').oninput = updateSearchResults;
+  document.getElementById('tagFilter').onchange = updateSearchResults;
+  window.addEventListener('resize', () => drawChart(datesOfMonth(year,currentMonth)));
+}
+function init(){ if(!data || typeof data !== 'object') data = defaultData(); updateTagFilter(); renderCalendar(); renderDetail(selectedDate); updateSearchResults(); bind(); }
+init();
 </script>
 </body>
 </html>
