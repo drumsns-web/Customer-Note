@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>客暦</title>
+  <meta name="theme-color" content="#0a0f16" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="客暦" />
+  <link rel="apple-touch-icon" href="./assets/app-icon.jpg" />
+  <style>
+    :root {--bg:#091019;--panel:#101a26;--panel-2:#132131;--line:#1f3145;--text:#eef6fb;--muted:#9cb2c6;--accent:#1ec7c3;--accent-2:#66f0d8;--shadow:0 16px 40px rgba(0,0,0,.35);--radius:24px;}
+    *{box-sizing:border-box} html,body{margin:0;padding:0;background:radial-gradient(circle at top, #122033 0%, #091019 55%, #060b11 100%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+    body{min-height:100vh} .wrap{max-width:520px;margin:0 auto;padding:20px 16px 32px} .hero{background:linear-gradient(180deg, rgba(16,26,38,.96), rgba(10,17,26,.98));border:1px solid var(--line);border-radius:32px;padding:24px 18px;box-shadow:var(--shadow)}
+    .icon{width:112px;height:112px;border-radius:26px;display:block;margin:0 auto 18px;box-shadow:0 14px 30px rgba(0,0,0,.35)} h1{margin:0 0 10px;text-align:center;font-size:32px;line-height:1.1}
+    .lead{margin:0 auto 18px;text-align:center;color:var(--muted);font-size:16px;line-height:1.7;max-width:28em} .badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:18px}
+    .badge{padding:8px 12px;border-radius:999px;background:rgba(30,199,195,.1);border:1px solid rgba(30,199,195,.24);color:#d7fffb;font-size:13px} .card{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:16px;margin-top:16px}
+    .card h2{margin:0 0 10px;font-size:18px} .list{display:grid;gap:10px;margin:0;padding:0;list-style:none} .item{display:flex;gap:10px;align-items:flex-start;background:var(--panel-2);border:1px solid #203244;border-radius:18px;padding:12px}
+    .dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(180deg,var(--accent),var(--accent-2));margin-top:6px;flex:0 0 auto} .item strong{display:block;font-size:15px;margin-bottom:4px} .item span{display:block;color:var(--muted);font-size:14px;line-height:1.6}
+    .footer{margin-top:18px;color:var(--muted);font-size:13px;line-height:1.7;text-align:center} .install{display:flex;justify-content:center;margin-top:18px} .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 18px;border-radius:16px;text-decoration:none;color:#031116;background:linear-gradient(135deg,var(--accent),var(--accent-2));font-weight:700;box-shadow:0 10px 24px rgba(30,199,195,.28)}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <img src="./assets/app-icon.jpg" alt="客暦のアプリアイコン" class="icon">
+      <h1>客暦</h1>
+      <p class="lead">バー・スナック向けの顧客管理アプリ用HTMLです。GitHub Pagesにアップして、そのままホーム画面追加の土台として使えます。</p>
+      <div class="badges"><div class="badge">顧客管理</div><div class="badge">売上記録</div><div class="badge">来店履歴</div></div>
+      <div class="install"><a class="btn" href="./assets/app-icon.jpg" download>アイコン画像を確認</a></div>
+    </section>
+    <section class="card">
+      <h2>GitHubに上げる手順</h2>
+      <ul class="list">
+        <li class="item"><div class="dot"></div><div><strong>1. このHTMLを index.html に変更</strong><span>GitHub Pages の公開用トップファイルとして使いやすくするためです。</span></div></li>
+        <li class="item"><div class="dot"></div><div><strong>2. assets フォルダごとアップロード</strong><span>アイコン画像の参照先は ./assets/app-icon.jpg です。</span></div></li>
+        <li class="item"><div class="dot"></div><div><strong>3. iPhoneでSafariから開く</strong><span>共有メニューからホーム画面に追加すると、アイコン付きで使えます。</span></div></li>
+      </ul>
+    </section>
+    <p class="footer">次はこの土台に、顧客一覧、カレンダー、保存機能を追加して本体アプリに育てられます。</p>
+  </main>
+</body>
+</html>
