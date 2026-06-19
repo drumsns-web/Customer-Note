@@ -2,122 +2,408 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Customer Note</title>
 <meta name="theme-color" content="#091019" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-mobile-web-app-title" content="Customer Note" />
-<link rel="apple-touch-icon" href="./assets/icon.jpg" />
+<link rel="icon" href="./icon.png" />
+<link rel="apple-touch-icon" href="./icon.png" />
 <style>
-:root{--panel:#111b26;--panel2:#162131;--line:#243448;--text:#eef6fb;--muted:#96abc0;--accent:#1ec7c3;--accent2:#66f0d8;--warn:#ffd56a;--danger:#ff8a7a}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;padding:0;background:radial-gradient(circle at top,#122033 0%,#091019 55%,#060b11 100%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
-body{min-height:100vh;font-size:16px}button,input,select,textarea{font:inherit}button{cursor:pointer;touch-action:manipulation;position:relative;z-index:2}
-.wrap{max-width:960px;margin:0 auto;padding:10px 10px 22px;pointer-events:auto}
-.top,.panel{background:rgba(17,27,38,.96);border:1px solid var(--line);border-radius:18px;box-shadow:0 16px 40px rgba(0,0,0,.32)}
-.top{padding:10px}.header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}.title{display:flex;flex-direction:column;gap:2px}.title h1{margin:0;font-size:20px;line-height:1.1}.title span{font-size:12px;color:var(--muted)}
-.chip{font-size:11px;padding:6px 10px;border-radius:999px;background:rgba(30,199,195,.1);border:1px solid rgba(30,199,195,.22);color:#d7fffb;white-space:nowrap}
-.nav{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}.btn{min-width:48px;min-height:48px;border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:14px;font-size:18px;display:flex;align-items:center;justify-content:center}.month{font-size:18px;font-weight:900}
-.weekdays,.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;width:100%}.weekday{text-align:center;font-size:12px;color:var(--muted);padding:2px 0}
-.day{min-height:92px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:6px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;text-align:left;color:inherit}.day.empty{background:transparent;border:1px dashed rgba(36,52,72,.34)}.day.today{outline:2px solid rgba(30,199,195,.7)}.date{font-size:13px;font-weight:900;line-height:1}
-.mini{display:flex;flex-direction:column;gap:4px;align-items:flex-start}.sale{font-size:12px;font-weight:900;line-height:1.05;word-break:keep-all}.people{font-size:12px;color:var(--accent2);font-weight:900;line-height:1.05}.bar{height:6px;width:100%;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden}.bar span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
-.main{display:grid;grid-template-columns:1.35fr .95fr;gap:10px;margin-top:10px}.panel{padding:12px}.panel h2{margin:0 0 10px;font-size:16px}.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.stat{background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:10px}.label{font-size:11px;color:var(--muted);margin-bottom:4px}.value{font-size:19px;font-weight:900}.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.tag{font-size:11px;padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.06);color:#dce8f2}
-.list{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:8px}.item{display:flex;gap:10px;align-items:flex-start;background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:10px}.dot{width:10px;height:10px;border-radius:50%;margin-top:5px;background:linear-gradient(180deg,var(--accent),var(--accent2))}.item strong{display:block;font-size:13px;margin-bottom:2px}.item span{display:block;font-size:12px;color:var(--muted);line-height:1.5}
-.controls{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:10px}.cbtn{min-height:46px;border:none;border-radius:14px;background:linear-gradient(135deg,#1d3147,#152131);color:var(--text);font-weight:800}.cbtn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#021116}.cbtn.warn{background:linear-gradient(135deg,#ffd56a,#ffb84f);color:#251600}.cbtn.danger{background:linear-gradient(135deg,#ff8a7a,#ff5f6a);color:#fff}
-.searchbox{display:grid;gap:8px}.searchbox input,.searchbox textarea,.searchbox select{width:100%;min-height:46px;border-radius:14px;border:1px solid var(--line);background:#0f1722;color:var(--text);padding:12px 12px}.searchbox textarea{min-height:86px;resize:vertical}.split{display:grid;grid-template-columns:1fr 1fr;gap:8px}.results{margin-top:8px;display:grid;gap:8px;max-height:260px;overflow:auto}.result{background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:10px}.result b{display:block;font-size:14px;margin-bottom:4px}.result small{color:var(--muted);display:block;line-height:1.4}.tiny{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.6}
-.modalback{position:fixed;inset:0;background:rgba(0,0,0,.58);display:none;align-items:flex-end;justify-content:center;padding:12px;z-index:20}.modal{width:min(100%,700px);background:#0f1722;border:1px solid var(--line);border-radius:18px;padding:12px;box-shadow:0 20px 50px rgba(0,0,0,.45)}.modalhead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}.modalhead h3{margin:0;font-size:16px}.xbtn{min-width:42px;min-height:42px;border:none;border-radius:12px;background:#1a2432;color:var(--text);font-size:18px}.field{display:grid;gap:6px;margin-bottom:8px}.field label{font-size:12px;color:var(--muted)}.field input,.field textarea,.field select{width:100%;min-height:46px;border-radius:14px;border:1px solid var(--line);background:#0c121b;color:var(--text);padding:12px 12px}.field textarea{min-height:90px;resize:vertical}.modalgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.modalactions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
-.toast{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);background:#0f1722;border:1px solid var(--line);color:var(--text);padding:12px 14px;border-radius:14px;box-shadow:0 16px 40px rgba(0,0,0,.4);display:none;z-index:30;max-width:min(92vw,560px)}.toast .trow{display:flex;align-items:center;gap:10px;justify-content:space-between}.toast .undo{border:none;background:linear-gradient(135deg,var(--warn),#ffb84f);color:#251600;border-radius:10px;padding:8px 12px;font-weight:800;min-height:38px}
-.lock{position:fixed;inset:0;z-index:9999;background:radial-gradient(circle at top,#13253a 0%,#091019 60%,#060b11 100%);display:flex;align-items:center;justify-content:center;padding:14px;pointer-events:auto}.lock-card{width:min(100%,420px);background:rgba(17,27,38,.98);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 20px 60px rgba(0,0,0,.5);pointer-events:auto}.lock-card h2{margin:0 0 8px;font-size:22px}.lock-card p{margin:0 0 14px;color:var(--muted);line-height:1.6}.lock-card input{width:100%;min-height:52px;border-radius:14px;border:1px solid var(--line);background:#0c121b;color:var(--text);padding:12px 14px;font-size:18px;letter-spacing:.2em;text-align:center}.lock-card .lock-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.lock-card .lock-btn{min-height:48px;border:none;border-radius:14px;font-weight:800}.lock-btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#021116}.lock-btn.secondary{background:#1a2432;color:var(--text)}.lock-help{margin-top:10px;color:var(--muted);font-size:12px;line-height:1.6}
-@media (max-width: 860px){.main{grid-template-columns:1fr}.grid{gap:3px}.day{min-height:84px}.controls{grid-template-columns:repeat(2,1fr)}}
-@media (max-width: 430px){.wrap{padding:8px}.top,.panel{border-radius:16px}.title h1{font-size:18px}.month{font-size:16px}.day{min-height:78px;padding:5px}.date,.sale,.people{font-size:11px}.row,.modalgrid{grid-template-columns:1fr}.controls{grid-template-columns:1fr}.lock-card .lock-actions{grid-template-columns:1fr}}
+:root{--bg:#071018;--panel:#101b26;--panel2:#162334;--line:#26394d;--text:#eef7fb;--muted:#95aabc;--accent:#18c7bf;--accent2:#6cf1d6;--warn:#ffd46b;--danger:#ff716d}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;min-height:100%;background:radial-gradient(circle at top,#122239 0%,#091019 58%,#05090e 100%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:pointer;touch-action:manipulation}
+.wrap{max-width:1040px;margin:0 auto;padding:12px 12px 28px}.top,.panel{background:rgba(16,27,38,.96);border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 44px rgba(0,0,0,.28)}.top{padding:12px}
+.header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}.brand{display:flex;align-items:center;gap:10px}.brand img{width:44px;height:44px;border-radius:12px}.title h1{margin:0;font-size:21px;line-height:1.1}.title span{display:block;margin-top:3px;font-size:12px;color:var(--muted)}.chip{font-size:12px;padding:7px 10px;border-radius:999px;background:rgba(24,199,191,.12);border:1px solid rgba(24,199,191,.25);white-space:nowrap}
+.nav{display:grid;grid-template-columns:52px 1fr 52px;align-items:center;gap:8px}.btn{min-height:48px;border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:14px;font-size:20px}.month{text-align:center;font-size:18px;font-weight:900}
+.weekdays,.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}.weekday{text-align:center;font-size:12px;color:var(--muted);padding:8px 0 3px}.day{min-height:94px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:7px;display:flex;flex-direction:column;justify-content:space-between;text-align:left;color:inherit}.day.empty{background:transparent;border:1px dashed rgba(38,57,77,.35);cursor:default}.day.selected{outline:2px solid rgba(24,199,191,.75)}.date{font-size:13px;font-weight:900}.sale{font-size:12px;font-weight:900}.people{font-size:12px;color:var(--accent2);font-weight:900}.bar{height:6px;width:100%;border-radius:999px;background:rgba(255,255,255,.07);overflow:hidden}.bar span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.controls{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:10px}.cbtn{min-height:46px;border:1px solid transparent;border-radius:14px;background:linear-gradient(135deg,#20354d,#162334);color:var(--text);font-weight:800}.cbtn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#031515}.cbtn.warn{background:linear-gradient(135deg,#ffd46b,#ffb24f);color:#2a1900}.cbtn.danger{background:linear-gradient(135deg,#ff8a7a,#ff5f6a);color:white}.cbtn.ghost{border-color:var(--line);background:#1a2635}
+.main{display:grid;grid-template-columns:1.25fr .95fr;gap:10px;margin-top:10px}.panel{padding:12px}.panel h2{margin:0 0 10px;font-size:16px}.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.stat,.result,.item{background:var(--panel2);border:1px solid var(--line);border-radius:14px}.stat{padding:10px}.label{font-size:11px;color:var(--muted);margin-bottom:4px}.value{font-size:20px;font-weight:900}.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.tag{font-size:12px;padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
+.list{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:8px}.item{display:flex;gap:10px;align-items:flex-start;padding:10px}.dot{width:10px;height:10px;border-radius:50%;margin-top:5px;background:linear-gradient(180deg,var(--accent),var(--accent2))}.item strong{display:block;font-size:13px;margin-bottom:3px}.item span,.tiny{font-size:12px;color:var(--muted);line-height:1.55}
+.searchbox{display:grid;gap:8px}.searchbox input,.searchbox select,.field input,.field textarea{width:100%;min-height:46px;border-radius:14px;border:1px solid var(--line);background:#0d151f;color:var(--text);padding:11px 12px}.split{display:grid;grid-template-columns:1fr 112px;gap:8px}.results{margin-top:8px;display:grid;gap:8px;max-height:270px;overflow:auto}.result{padding:10px;text-align:left;color:inherit}.result b{display:block;font-size:14px;margin-bottom:4px}.result small{color:var(--muted);display:block;line-height:1.45}
+.modalback{position:fixed;inset:0;background:rgba(0,0,0,.58);display:none;align-items:flex-end;justify-content:center;padding:12px;z-index:20}.modal{width:min(100%,720px);background:#0f1722;border:1px solid var(--line);border-radius:18px;padding:12px;box-shadow:0 22px 54px rgba(0,0,0,.45)}.modalhead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}.modalhead h3{margin:0;font-size:16px}.xbtn{min-width:42px;min-height:42px;border:none;border-radius:12px;background:#1b2837;color:var(--text);font-size:18px}.modalgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.field{display:grid;gap:6px;margin-bottom:8px}.field label{font-size:12px;color:var(--muted)}.field textarea{min-height:90px;resize:vertical}.modalactions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.toast{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);background:#0f1722;border:1px solid var(--line);color:var(--text);padding:12px 14px;border-radius:14px;box-shadow:0 16px 40px rgba(0,0,0,.4);display:none;z-index:30;max-width:min(92vw,560px)}
+.lock{position:fixed;inset:0;z-index:99;background:radial-gradient(circle at top,#13253a 0%,#091019 62%,#060b11 100%);display:none;align-items:center;justify-content:center;padding:14px}.lock-card{width:min(100%,420px);background:rgba(16,27,38,.98);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 20px 60px rgba(0,0,0,.5)}.lock-card h2{margin:0 0 8px;font-size:22px}.lock-card p{margin:0 0 14px;color:var(--muted);line-height:1.6}.lock-card input{width:100%;min-height:52px;border-radius:14px;border:1px solid var(--line);background:#0d151f;color:var(--text);padding:12px 14px;font-size:18px;letter-spacing:.2em;text-align:center}.lock-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+@media (max-width:860px){.main{grid-template-columns:1fr}.controls{grid-template-columns:repeat(2,1fr)}.day{min-height:84px}}
+@media (max-width:460px){.wrap{padding:8px}.header{align-items:flex-start}.brand img{width:38px;height:38px}.chip{display:none}.day{min-height:76px;padding:5px}.date,.sale,.people{font-size:11px}.row,.modalgrid,.controls,.lock-actions{grid-template-columns:1fr}.split{grid-template-columns:1fr}.month{font-size:16px}}
 </style>
 </head>
 <body>
-<div class="lock" id="lockScreen" style="pointer-events:auto">
-  <div class="lock-card" style="pointer-events:auto">
+<div class="lock" id="lockScreen">
+  <div class="lock-card">
     <h2>ロック解除</h2>
-    <p>暗証番号を入力してください。Face IDが使える端末ではFace IDでの解除も可能です。</p>
-    <input id="pinInput" type="password" inputmode="numeric" placeholder="4〜8桁の暗証番号" maxlength="8" />
+    <p>PINを設定している場合は、番号を入力して解除してください。初回は「PIN設定」で登録できます。</p>
+    <input id="pinInput" type="password" inputmode="numeric" placeholder="4桁以上のPIN" maxlength="12" />
     <div class="lock-actions">
-      <button type="button" class="lock-btn primary" id="unlockBtn" onclick="unlockPin()">PIN解除</button>
-      <button type="button" class="lock-btn secondary" id="setupBtn" onclick="setupPin()">初期設定</button>
+      <button type="button" class="cbtn primary" id="unlockBtn">解除</button>
+      <button type="button" class="cbtn ghost" id="setupBtn">PIN設定</button>
     </div>
     <div class="lock-actions">
-      <button type="button" class="lock-btn secondary" id="enableFaceBtn" onclick="enableFace()">Face IDを有効化</button>
-      <button type="button" class="lock-btn secondary" id="unlockFaceBtn" onclick="unlockFace()">Face IDで解除</button>
+      <button type="button" class="cbtn ghost" id="skipLockBtn">今回は開く</button>
+      <button type="button" class="cbtn danger" id="resetPinBtn">PIN削除</button>
     </div>
-    <div class="lock-help">初回は「初期設定」で暗証番号を登録します。その後、Face ID対応端末ではPasskeyとしてFace IDを有効化できます。</div>
   </div>
 </div>
 
-<div class="wrap" id="appRoot" style="display:none">
+<div class="wrap" id="appRoot">
   <section class="top">
-    <div class="header"><div class="title"><h1>Customer Note</h1><span>顧客・売上・来店頻度・出来事メモを一括管理</span></div><div class="chip">保存対応 / 検索対応</div></div>
-    <div class="nav"><button class="btn" id="prevMonthBtn">←</button><div class="month" id="monthLabel"></div><button class="btn" id="nextMonthBtn">→</button></div>
+    <div class="header">
+      <div class="brand"><img src="./icon.png" alt="" /><div class="title"><h1>Customer Note</h1><span>顧客・売上・来店記録をカレンダーで管理</span></div></div>
+      <div class="chip">自動保存 / 検索対応</div>
+    </div>
+    <div class="nav"><button class="btn" id="prevMonthBtn" type="button">‹</button><div class="month" id="monthLabel"></div><button class="btn" id="nextMonthBtn" type="button">›</button></div>
     <div class="weekdays"><div class="weekday">日</div><div class="weekday">月</div><div class="weekday">火</div><div class="weekday">水</div><div class="weekday">木</div><div class="weekday">金</div><div class="weekday">土</div></div>
     <div class="grid" id="calendarGrid"></div>
-    <div class="controls"><button class="cbtn primary" id="addRecordBtn">＋記録</button><button class="cbtn" id="saveBtn">保存</button><button class="cbtn" id="loadBtn">読込</button><button class="cbtn warn" id="exportBtn">書出</button><button class="cbtn danger" id="clearBtn">全消去</button></div>
+    <div class="controls">
+      <button class="cbtn primary" id="addRecordBtn" type="button">記録追加</button>
+      <button class="cbtn" id="saveBtn" type="button">保存</button>
+      <button class="cbtn" id="loadBtn" type="button">読込</button>
+      <button class="cbtn warn" id="exportBtn" type="button">書出</button>
+      <button class="cbtn danger" id="clearBtn" type="button">全消去</button>
+    </div>
   </section>
   <div class="main">
-    <section class="panel"><h2 id="detailTitle">日別詳細</h2><div class="row"><div class="stat"><div class="label">売上</div><div class="value" id="saleValue">-</div></div><div class="stat"><div class="label">来客数</div><div class="value" id="peopleValue">-</div></div></div><div class="tags" id="tagArea"></div><ul class="list" id="logList"></ul><div class="tiny">日付をタップすると詳細を切り替えられます。ここから編集もできます。</div></section>
-    <section class="panel"><h2>顧客検索</h2><div class="searchbox"><input id="searchInput" placeholder="名前 / 特徴 / メモ / タグで検索" /><div class="split"><select id="tagFilter"><option value="">全タグ</option></select><button class="cbtn primary" id="searchBtn">検索</button></div><div class="results" id="searchResults"></div><div class="tiny">例: 先月 グラス割った, 常連, カラオケ, ボトル, 接待 などで候補を絞れます。メモ本文も検索対象です。</div></div><h2 style="margin-top:14px">月まとめ</h2><div class="row"><div class="stat"><div class="label">月売上</div><div class="value" id="monthSales">-</div></div><div class="stat"><div class="label">来店日数</div><div class="value" id="monthVisits">-</div></div></div><canvas id="barChart" width="800" height="260" style="width:100%;margin-top:10px;background:linear-gradient(180deg,#0d1520,#0b1118);border:1px solid var(--line);border-radius:14px"></canvas></section>
+    <section class="panel">
+      <h2 id="detailTitle">日別詳細</h2>
+      <div class="row"><div class="stat"><div class="label">売上</div><div class="value" id="saleValue">-</div></div><div class="stat"><div class="label">来店数</div><div class="value" id="peopleValue">-</div></div></div>
+      <div class="tags" id="tagArea"></div>
+      <ul class="list" id="logList"></ul>
+      <div class="tiny">日付を押すと詳細が切り替わります。「記録追加」から編集できます。</div>
+    </section>
+    <section class="panel">
+      <h2>顧客検索</h2>
+      <div class="searchbox">
+        <input id="searchInput" placeholder="名前 / 特徴 / メモ / タグで検索" />
+        <div class="split"><select id="tagFilter"><option value="">全タグ</option></select><button class="cbtn primary" id="searchBtn" type="button">検索</button></div>
+        <div class="results" id="searchResults"></div>
+      </div>
+      <h2 style="margin-top:14px">月まとめ</h2>
+      <div class="row"><div class="stat"><div class="label">月売上</div><div class="value" id="monthSales">-</div></div><div class="stat"><div class="label">記録日数</div><div class="value" id="monthVisits">-</div></div></div>
+      <canvas id="barChart" width="800" height="260" style="width:100%;margin-top:10px;background:#0b1118;border:1px solid var(--line);border-radius:14px"></canvas>
+    </section>
   </div>
 </div>
 
-<div class="modalback" id="modalBack"><div class="modal"><div class="modalhead"><h3 id="modalTitle">記録を追加</h3><button class="xbtn" id="closeModalBtn">×</button></div><div class="modalgrid"><div class="field"><label>日付</label><input id="fDate" type="date" /></div><div class="field"><label>顧客名</label><input id="fName" type="text" placeholder="例: 山田太郎" /></div></div><div class="modalgrid"><div class="field"><label>売上</label><input id="fSale" type="number" min="0" step="1" placeholder="例: 49000" /></div><div class="field"><label>来客数</label><input id="fPeople" type="number" min="0" step="1" placeholder="例: 13" /></div></div><div class="field"><label>タグ / 特徴（カンマ区切り）</label><input id="fTags" type="text" placeholder="常連, カラオケ多め, ボトルあり" /></div><div class="field"><label>その日の出来事メモ</label><textarea id="fMemo" placeholder="例: 先月グラス割ったお客様。ボトル更新。団体利用。"></textarea></div><div class="field"><label>追記メモ（複数行）</label><textarea id="fNotes" placeholder="1行ずつ入力できます。検索にも使われます。"></textarea></div><div class="modalactions"><button class="cbtn primary" id="saveRecordBtn">保存する</button><button class="cbtn" id="deleteRecordBtn">この日を削除</button></div></div></div>
-<div class="modalback" id="confirmBack" style="align-items:center;"><div class="modal" style="max-width:520px;"><div class="modalhead"><h3>全消去の確認</h3><button class="xbtn" id="closeConfirmBtn">×</button></div><div class="field"><label>確認文</label><div style="color:var(--muted);line-height:1.6;font-size:14px">全データを消します。消したくない場合は「キャンセル」を押してください。復元用に直前のバックアップは保持します。</div></div><div class="modalactions"><button class="cbtn danger" id="confirmClearBtn">全て消去</button><button class="cbtn" id="cancelClearBtn">キャンセル</button></div></div></div>
-<div class="toast" id="toast"><div class="trow"><div id="toastText">削除しました</div><button class="undo" id="undoBtn">元に戻す</button></div></div>
+<div class="modalback" id="modalBack">
+  <div class="modal">
+    <div class="modalhead"><h3 id="modalTitle">記録を追加</h3><button class="xbtn" id="closeModalBtn" type="button">×</button></div>
+    <div class="modalgrid"><div class="field"><label>日付</label><input id="fDate" type="date" /></div><div class="field"><label>顧客名</label><input id="fName" type="text" placeholder="例: 山田太郎" /></div></div>
+    <div class="modalgrid"><div class="field"><label>売上</label><input id="fSale" type="number" min="0" step="1" placeholder="例: 49000" /></div><div class="field"><label>来店数</label><input id="fPeople" type="number" min="0" step="1" placeholder="例: 13" /></div></div>
+    <div class="field"><label>タグ / 特徴（カンマ区切り）</label><input id="fTags" type="text" placeholder="常連, カラオケ多め, ボトルあり" /></div>
+    <div class="field"><label>その日のメモ</label><textarea id="fMemo" placeholder="例: 先月グラスを割ったお客様。ボトル更新。"></textarea></div>
+    <div class="field"><label>追記メモ（複数行）</label><textarea id="fNotes" placeholder="1行ずつ入力できます。検索にも使われます。"></textarea></div>
+    <div class="modalactions"><button class="cbtn primary" id="saveRecordBtn" type="button">保存する</button><button class="cbtn danger" id="deleteRecordBtn" type="button">この日を削除</button></div>
+  </div>
+</div>
+
+<div class="modalback" id="confirmBack" style="align-items:center">
+  <div class="modal" style="max-width:520px">
+    <div class="modalhead"><h3>全消去の確認</h3><button class="xbtn" id="closeConfirmBtn" type="button">×</button></div>
+    <p class="tiny" style="font-size:14px">すべての記録を消去します。直後なら画面下の「元に戻す」で復元できます。</p>
+    <div class="modalactions"><button class="cbtn danger" id="confirmClearBtn" type="button">すべて消去</button><button class="cbtn" id="cancelClearBtn" type="button">キャンセル</button></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"><span id="toastText"></span> <button class="cbtn warn" id="undoBtn" type="button" style="min-height:36px;margin-left:10px">元に戻す</button></div>
+
 <script>
-const LS_KEY='customer_note_data_v4',PIN_KEY='customer_note_pin_v1',PASSKEY_KEY='customer_note_passkey_v1',LOCK_KEY='customer_note_locked_v1';
-const year=2026; let currentMonth=5, selectedDate='2026-06-13', data=loadData(), lastDeleted=null, lastBackup=null;
-let pin=localStorage.getItem(PIN_KEY)||'', locked=localStorage.getItem(LOCK_KEY)!=='0', passkeyEnabled=localStorage.getItem(PASSKEY_KEY)==='1';
-function defaultData(){return {'2026-06-13':{name:'山田太郎',sale:49000,people:13,tags:['常連','カラオケ多め','ボトルあり'],memo:'先月グラス割ったお客様。20:00常連A、22:30ボトル更新。',notes:['先月グラス割ったお客様','20:00 常連A','22:30 ボトル更新']}}}
-function loadData(){try{const s=localStorage.getItem(LS_KEY); return s?JSON.parse(s):defaultData();}catch(e){return defaultData()}}
-function saveData(){localStorage.setItem(LS_KEY,JSON.stringify(data))}
-function saveLock(){localStorage.setItem(LOCK_KEY,locked?'1':'0')}
-function savePasskeyFlag(v){passkeyEnabled=v; localStorage.setItem(PASSKEY_KEY,v?'1':'0')}
-function savePin(v){pin=v; localStorage.setItem(PIN_KEY,v)}
-function money(n){return '¥'+Number(n||0).toLocaleString('ja-JP')}
-function shortMoney(n){const v=Number(n||0); return (v/10000).toFixed(v>=100000?0:1).replace(/\.0$/,'')+'万'}
-function ymLabel(y,m){return `${y}年${m+1}月`}
-function pad(n){return String(n).padStart(2,'0')}
-function datesOfMonth(y,m){const end=new Date(y,m+1,0).getDate(); return Array.from({length:end},(_,i)=>`${y}-${pad(m+1)}-${pad(i+1)}`)}
-function allSearchText(item){return [item.name||'', item.memo||'', ...(item.tags||[]), ...(item.notes||[])].join(' ').toLowerCase()}
-function renderCalendar(){document.getElementById('monthLabel').textContent=ymLabel(year,currentMonth); const grid=document.getElementById('calendarGrid'); grid.innerHTML=''; const firstDay=new Date(year,currentMonth,1).getDay(); for(let i=0;i<firstDay;i++) grid.insertAdjacentHTML('beforeend','<div class="day empty"></div>'); const endDay=new Date(year,currentMonth+1,0).getDate(); for(let d=1; d<=endDay; d++){const date=`${year}-${pad(currentMonth+1)}-${pad(d)}`; const item=data[date]; const saleText=item?shortMoney(item.sale):'-'; const peopleText=item?`👥 ${item.people}`:'未入力'; const width=item?Math.min(100,Math.round(item.sale/550)):0; const isSel=date===selectedDate?'today':''; grid.insertAdjacentHTML('beforeend', `<button class="day ${isSel}" data-date="${date}" type="button"><div class="date">${d}</div><div class="mini"><div class="sale">${saleText}</div><div class="people">${peopleText}</div></div><div class="bar"><span style="width:${width}%"></span></div></button>`)} grid.querySelectorAll('[data-date]').forEach(btn=>btn.addEventListener('click',()=>selectDate(btn.dataset.date)))}
-function renderDetail(date){const item=data[date]||{name:'未入力',sale:0,people:0,tags:[],memo:'',notes:[]}; selectedDate=date; document.getElementById('detailTitle').textContent=`${date.slice(5,7)}月${Number(date.slice(8,10))}日の詳細`; document.getElementById('saleValue').textContent=item.sale?money(item.sale):'-'; document.getElementById('peopleValue').textContent=item.people?`${item.people}人`:'-'; document.getElementById('tagArea').innerHTML=(item.tags||[]).map(t=>`<span class="tag">${escapeHtml(t)}</span>`).join('')||'<span class="tag">未設定</span>'; const notes=(item.notes||[]).slice(); if(item.memo) notes.unshift(item.memo); document.getElementById('logList').innerHTML=notes.length?notes.map(n=>`<li class="item"><div class="dot"></div><div><strong>${escapeHtml(n)}</strong><span>検索対象のメモとして保存されています。</span></div></li>`).join(''):'<li class="item"><div class="dot"></div><div><strong>記録なし</strong><span>この日の内容を追加できます。</span></div></li>'; renderCalendar(); updateMonthlySummary(); updateSearchResults(); fillModal(date)}
-function fillModal(date){const item=data[date]||{name:'',sale:'',people:'',tags:[],memo:'',notes:[]}; document.getElementById('fDate').value=date; document.getElementById('fName').value=item.name||''; document.getElementById('fSale').value=item.sale||''; document.getElementById('fPeople').value=item.people||''; document.getElementById('fTags').value=(item.tags||[]).join(', '); document.getElementById('fMemo').value=item.memo||''; document.getElementById('fNotes').value=(item.notes||[]).join('\n')}
-function selectDate(date){renderDetail(date)}
-function openModal(date){fillModal(date||selectedDate); document.getElementById('modalTitle').textContent=data[date]?'記録を編集':'記録を追加'; document.getElementById('modalBack').style.display='flex'}
-function closeModal(){document.getElementById('modalBack').style.display='none'}
-function showToast(text, undoAction){const t=document.getElementById('toast'); document.getElementById('toastText').textContent=text; const ub=document.getElementById('undoBtn'); ub.style.display=undoAction?'inline-flex':'none'; ub.onclick=undoAction||null; t.style.display='block'; clearTimeout(showToast.timer); showToast.timer=setTimeout(()=>{t.style.display='none'},5000)}
-function updateMonthlySummary(){const dates=datesOfMonth(year,currentMonth); let sales=0, visitDays=0; for(const d of dates){if(data[d]){sales += Number(data[d].sale||0); visitDays++}} document.getElementById('monthSales').textContent=money(sales); document.getElementById('monthVisits').textContent=`${visitDays}日`; drawChart(dates)}
-function drawChart(dates){const c=document.getElementById('barChart'), ctx=c.getContext('2d'); const dpr=window.devicePixelRatio||1, w=c.clientWidth||800, h=260; c.width=Math.round(w*dpr); c.height=Math.round(h*dpr); ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,w,h); const sales=dates.map(d=>Number((data[d]&&data[d].sale)||0)); const max=Math.max(1,...sales); const padL=40,padR=12,padT=16,padB=28; ctx.fillStyle='#0b1118'; ctx.fillRect(0,0,w,h); ctx.strokeStyle='rgba(255,255,255,.08)'; for(let i=0;i<4;i++){const y=padT+(h-padT-padB)/3*i; ctx.beginPath(); ctx.moveTo(padL,y); ctx.lineTo(w-padR,y); ctx.stroke()} const bw=(w-padL-padR)/dates.length; dates.forEach((d,i)=>{const val=sales[i], bh=(h-padT-padB)*(val/max), x=padL+i*bw+bw*0.18, y=h-padB-bh, barw=bw*0.64, grad=ctx.createLinearGradient(0,y,0,h-padB); grad.addColorStop(0,'#1ec7c3'); grad.addColorStop(1,'#66f0d8'); ctx.fillStyle=grad; roundRect(ctx,x,y,barw,bh,8); ctx.fill()}); ctx.fillStyle='#b9c9d8'; ctx.font='12px -apple-system,BlinkMacSystemFont,sans-serif'; ctx.fillText('月別売上',10,16)}
-function roundRect(ctx,x,y,w,h,r){ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath()}
-function updateTagFilter(){const tags=new Set(); Object.values(data).forEach(v=>(v.tags||[]).forEach(t=>tags.add(t))); const sel=document.getElementById('tagFilter'), current=sel.value; sel.innerHTML='<option value="">全タグ</option>' + [...tags].sort().map(t=>`<option value="${escapeAttr(t)}">${escapeHtml(t)}</option>`).join(''); sel.value=current}
-function matches(item,q,tag){const text=allSearchText(item); return (!q || text.includes(q.toLowerCase())) && (!tag || (item.tags||[]).includes(tag))}
-function updateSearchResults(){const q=document.getElementById('searchInput').value.trim(), tag=document.getElementById('tagFilter').value; const res=Object.entries(data).filter(([date,item])=>matches(item,q,tag)).sort((a,b)=>b[0].localeCompare(a[0])); const box=document.getElementById('searchResults'); if(!res.length){box.innerHTML='<div class="result"><b>候補なし</b><small>検索条件を変えてください。</small></div>'; return} box.innerHTML=res.slice(0,20).map(([date,item])=>{const excerpt=(item.memo||item.notes?.join(' / ')||''); return `<button class="result" type="button" data-date="${date}" style="text-align:left;color:inherit;cursor:pointer"><b>${escapeHtml(date)} / ${escapeHtml(item.name||'未設定')}</b><small>売上 ${money(item.sale||0)} ・ 来客 ${item.people||0}人<br>${escapeHtml((item.tags||[]).join(' / ') || 'タグなし')}<br>${escapeHtml(excerpt.slice(0,120))}</small></button>`}).join(''); box.querySelectorAll('[data-date]').forEach(btn=>btn.addEventListener('click',()=>{selectDate(btn.dataset.date); document.getElementById('modalBack').style.display='none'}))}
-function escapeHtml(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
-function escapeAttr(s){return String(s||'').replace(/"/g,'&quot;')}
-function saveRecord(){const date=document.getElementById('fDate').value; if(!date) return alert('日付を入力してください'); const name=document.getElementById('fName').value.trim(); const sale=Number(document.getElementById('fSale').value||0); const people=Number(document.getElementById('fPeople').value||0); const tags=document.getElementById('fTags').value.split(',').map(s=>s.trim()).filter(Boolean); const memo=document.getElementById('fMemo').value.trim(); const notes=document.getElementById('fNotes').value.split(/\n+/).map(s=>s.trim()).filter(Boolean); data[date]={name,sale,people,tags,memo,notes}; saveData(); updateTagFilter(); closeModal(); selectDate(date)}
-function deleteRecord(){const date=document.getElementById('fDate').value; if(!date || !data[date]) return; const backup=JSON.parse(JSON.stringify(data[date])); lastDeleted={date,item:backup}; delete data[date]; saveData(); updateTagFilter(); closeModal(); selectDate(date); showToast(`削除しました: ${date}`, ()=>{if(lastDeleted){data[lastDeleted.date]=lastDeleted.item; saveData(); updateTagFilter(); selectDate(lastDeleted.date); document.getElementById('toast').style.display='none'; lastDeleted=null}})}
-function clearAll(){lastBackup=JSON.parse(JSON.stringify(data)); data={}; saveData(); updateTagFilter(); renderDetail(selectedDate); showToast('全データを消去しました', ()=>{if(lastBackup){data=lastBackup; saveData(); updateTagFilter(); renderDetail(selectedDate); document.getElementById('toast').style.display='none'; lastBackup=null}})}
-function exportJson(){const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='customer-note-backup.json'; a.click()}
-function importJson(){const inp=document.createElement('input'); inp.type='file'; inp.accept='application/json'; inp.onchange=async()=>{const file=inp.files&&inp.files[0]; if(!file) return; const txt=await file.text(); data=JSON.parse(txt); saveData(); updateTagFilter(); selectDate(selectedDate); alert('読み込みました')}; inp.click()}
-function confirmClear(){document.getElementById('confirmBack').style.display='flex'} function closeConfirm(){document.getElementById('confirmBack').style.display='none'}
-function supportsPasskey(){ return !!window.PublicKeyCredential && location.protocol === 'https:' }
-async function registerPasskey(){ if(!supportsPasskey()) throw new Error('Passkeys非対応またはHTTPSではありません'); const challenge=crypto.getRandomValues(new Uint8Array(32)); const userId=crypto.getRandomValues(new Uint8Array(16)); const publicKey={challenge,rp:{name:'Customer Note'},user:{id:userId,name:'customer-note-user',displayName:'Customer Note User'},pubKeyCredParams:[{type:'public-key',alg:-7}],authenticatorSelection:{authenticatorAttachment:'platform',userVerification:'required',residentKey:'preferred'},timeout:60000,attestation:'none'}; const cred=await navigator.credentials.create({publicKey}); localStorage.setItem('customer_note_passkey_id', arrayBufferToBase64(cred.rawId)); savePasskeyFlag(true); return !!cred }
-async function authenticatePasskey(){ if(!supportsPasskey()) throw new Error('Passkeys非対応またはHTTPSではありません'); const challenge=crypto.getRandomValues(new Uint8Array(32)); const allow=[]; const id=localStorage.getItem('customer_note_passkey_id'); if(id) allow.push({type:'public-key',id:base64ToArrayBuffer(id)}); const publicKey={challenge,userVerification:'required',timeout:60000,allowCredentials:allow}; await navigator.credentials.get({publicKey}); return true }
-function arrayBufferToBase64(buffer){ let binary=''; const bytes=new Uint8Array(buffer); for(let i=0;i<bytes.byteLength;i++) binary += String.fromCharCode(bytes[i]); return btoa(binary) }
-function base64ToArrayBuffer(base64){ const binary=atob(base64); const bytes=new Uint8Array(binary.length); for(let i=0;i<binary.length;i++) bytes[i]=binary.charCodeAt(i); return bytes.buffer }
-function showLock(){ document.getElementById('lockScreen').style.display='flex'; document.getElementById('appRoot').style.display='none' }
-function showApp(){ document.getElementById('lockScreen').style.display='none'; document.getElementById('appRoot').style.display='block'; initApp() }
-window.unlockPin = function unlockPin(){ const v=document.getElementById('pinInput').value.trim(); if(!pin) return alert('先にPINを登録してください'); if(v===pin){ locked=false; saveLock(); showApp() } else alert('暗証番号が違います') }
-async window.unlockFace = async function unlockFace(){ try{ if(!passkeyEnabled) return alert('先にFace IDを有効化してください'); await authenticatePasskey(); locked=false; saveLock(); showApp() }catch(e){ alert('Face ID解除に失敗しました。PINで解除してください。') } }
-async window.enableFace = async function enableFace(){ try{ if(!pin) return alert('先にPINを登録してください'); await registerPasskey(); alert('Face IDを有効化しました'); }catch(e){ alert('Face ID有効化に失敗しました: ' + e.message) } }
-window.setupPin = function setupPin(){ const v=document.getElementById('pinInput').value.trim(); if(v.length < 4) return alert('4桁以上で設定してください'); savePin(v); locked=true; saveLock(); alert('暗証番号を登録しました。次回からこの番号で解除できます。') }
-function initApp(){ if(!data || typeof data !== 'object') data = defaultData(); updateTagFilter(); renderCalendar(); renderDetail(selectedDate); updateSearchResults(); bind() }
-function bind(){ document.getElementById('prevMonthBtn').onclick=()=>alert('まずは6月固定の本番版です。月移動は次の版で実装可能です。'); document.getElementById('nextMonthBtn').onclick=()=>alert('まずは6月固定の本番版です。月移動は次の版で実装可能です。'); document.getElementById('addRecordBtn').onclick=()=>openModal(selectedDate||'2026-06-13'); document.getElementById('saveBtn').onclick=()=>{saveData(); alert('保存しました')}; document.getElementById('loadBtn').onclick=importJson; document.getElementById('exportBtn').onclick=exportJson; document.getElementById('clearBtn').onclick=confirmClear; document.getElementById('closeModalBtn').onclick=closeModal; document.getElementById('modalBack').addEventListener('click',e=>{if(e.target.id==='modalBack') closeModal()}); document.getElementById('saveRecordBtn').onclick=saveRecord; document.getElementById('deleteRecordBtn').onclick=deleteRecord; document.getElementById('searchBtn').onclick=updateSearchResults; document.getElementById('searchInput').oninput=updateSearchResults; document.getElementById('tagFilter').onchange=updateSearchResults; document.getElementById('closeConfirmBtn').onclick=closeConfirm; document.getElementById('cancelClearBtn').onclick=closeConfirm; document.getElementById('confirmBack').addEventListener('click',e=>{if(e.target.id==='confirmBack') closeConfirm()}); document.getElementById('confirmClearBtn').onclick=()=>{closeConfirm(); clearAll()}; document.getElementById('undoBtn').onclick=()=>{}; window.addEventListener('resize',()=>drawChart(datesOfMonth(year,currentMonth))); document.getElementById('unlockBtn').onclick=unlockPin; document.getElementById('setupBtn').onclick=setupPin; document.getElementById('enableFaceBtn').onclick=enableFace; document.getElementById('unlockFaceBtn').onclick=unlockFace; document.getElementById('pinInput').addEventListener('keydown',e=>{if(e.key==='Enter') unlockPin()}); }
-document.getElementById('lockScreen').style.display = 'flex'; document.getElementById('appRoot').style.display = locked ? 'none' : 'block'; if(locked) showLock(); else showApp();
+(() => {
+  const LS_KEY = "customer_note_data_v5";
+  const PIN_KEY = "customer_note_pin_v1";
+  const today = new Date();
+  let currentYear = today.getFullYear();
+  let currentMonth = today.getMonth();
+  let selectedDate = isoDate(today);
+  let data = loadData();
+  let lastBackup = null;
+  const $ = (id) => document.getElementById(id);
+
+  function isoDate(d) { return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`; }
+  function pad(n) { return String(n).padStart(2, "0"); }
+  function money(n) { return "¥" + Number(n || 0).toLocaleString("ja-JP"); }
+  function shortMoney(n) { const v = Number(n || 0); return v ? `${(v / 10000).toFixed(v >= 100000 ? 0 : 1).replace(/\.0$/, "")}万` : "-"; }
+  function escapeHtml(s) { return String(s || "").replace(/[&<>"']/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m])); }
+  function defaultData() {
+    return {
+      [selectedDate]: {
+        name: "サンプル顧客",
+        sale: 49000,
+        people: 13,
+        tags: ["常連", "ボトルあり"],
+        memo: "ここに顧客メモや出来事を保存できます。",
+        notes: ["検索欄から名前、タグ、メモを探せます。"]
+      }
+    };
+  }
+  function loadData() {
+    try {
+      const saved = localStorage.getItem(LS_KEY);
+      return saved ? JSON.parse(saved) : defaultData();
+    } catch {
+      return defaultData();
+    }
+  }
+  function saveData() { localStorage.setItem(LS_KEY, JSON.stringify(data)); }
+
+  function datesOfMonth(y, m) {
+    const end = new Date(y, m + 1, 0).getDate();
+    return Array.from({ length: end }, (_, i) => `${y}-${pad(m + 1)}-${pad(i + 1)}`);
+  }
+  function renderCalendar() {
+    $("monthLabel").textContent = `${currentYear}年${currentMonth + 1}月`;
+    const grid = $("calendarGrid");
+    grid.innerHTML = "";
+    const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+    for (let i = 0; i < firstDay; i++) grid.insertAdjacentHTML("beforeend", '<button class="day empty" type="button" disabled></button>');
+    const dates = datesOfMonth(currentYear, currentMonth);
+    const maxSale = Math.max(1, ...dates.map((d) => Number(data[d]?.sale || 0)));
+    for (const date of dates) {
+      const item = data[date];
+      const day = Number(date.slice(8, 10));
+      const width = item ? Math.round((Number(item.sale || 0) / maxSale) * 100) : 0;
+      grid.insertAdjacentHTML("beforeend", `
+        <button class="day ${date === selectedDate ? "selected" : ""}" data-date="${date}" type="button">
+          <div class="date">${day}</div>
+          <div><div class="sale">${item ? shortMoney(item.sale) : "-"}</div><div class="people">${item ? `${item.people || 0}名` : "未入力"}</div></div>
+          <div class="bar"><span style="width:${width}%"></span></div>
+        </button>`);
+    }
+    grid.querySelectorAll("[data-date]").forEach((btn) => btn.addEventListener("click", () => selectDate(btn.dataset.date)));
+  }
+  function renderDetail(date) {
+    selectedDate = date;
+    const item = data[date] || { name: "", sale: 0, people: 0, tags: [], memo: "", notes: [] };
+    $("detailTitle").textContent = `${Number(date.slice(5, 7))}月${Number(date.slice(8, 10))}日の詳細`;
+    $("saleValue").textContent = item.sale ? money(item.sale) : "-";
+    $("peopleValue").textContent = item.people ? `${item.people}名` : "-";
+    $("tagArea").innerHTML = (item.tags || []).map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join("") || '<span class="tag">タグなし</span>';
+    const notes = [item.memo, ...(item.notes || [])].filter(Boolean);
+    $("logList").innerHTML = notes.length
+      ? notes.map((n) => `<li class="item"><div class="dot"></div><div><strong>${escapeHtml(n)}</strong><span>${escapeHtml(item.name || "名称未設定")}</span></div></li>`).join("")
+      : '<li class="item"><div class="dot"></div><div><strong>記録なし</strong><span>この日の内容を追加できます。</span></div></li>';
+    fillModal(date);
+    renderCalendar();
+    updateTagFilter();
+    updateSearchResults();
+    updateMonthlySummary();
+  }
+  function fillModal(date) {
+    const item = data[date] || { name: "", sale: "", people: "", tags: [], memo: "", notes: [] };
+    $("fDate").value = date;
+    $("fName").value = item.name || "";
+    $("fSale").value = item.sale || "";
+    $("fPeople").value = item.people || "";
+    $("fTags").value = (item.tags || []).join(", ");
+    $("fMemo").value = item.memo || "";
+    $("fNotes").value = (item.notes || []).join("\n");
+  }
+  function selectDate(date) { renderDetail(date); }
+  function openModal(date) {
+    fillModal(date || selectedDate);
+    $("modalTitle").textContent = data[date || selectedDate] ? "記録を編集" : "記録を追加";
+    $("modalBack").style.display = "flex";
+  }
+  function closeModal() { $("modalBack").style.display = "none"; }
+  function saveRecord() {
+    const date = $("fDate").value;
+    if (!date) { alert("日付を入力してください"); return; }
+    data[date] = {
+      name: $("fName").value.trim(),
+      sale: Number($("fSale").value || 0),
+      people: Number($("fPeople").value || 0),
+      tags: $("fTags").value.split(",").map((s) => s.trim()).filter(Boolean),
+      memo: $("fMemo").value.trim(),
+      notes: $("fNotes").value.split(/\n+/).map((s) => s.trim()).filter(Boolean)
+    };
+    const d = new Date(`${date}T00:00:00`);
+    currentYear = d.getFullYear();
+    currentMonth = d.getMonth();
+    saveData();
+    closeModal();
+    renderDetail(date);
+    showToast("保存しました");
+  }
+  function deleteRecord() {
+    const date = $("fDate").value;
+    if (!date || !data[date]) return;
+    const backup = JSON.parse(JSON.stringify(data[date]));
+    delete data[date];
+    saveData();
+    closeModal();
+    renderDetail(date);
+    showToast("削除しました", () => {
+      data[date] = backup;
+      saveData();
+      renderDetail(date);
+      hideToast();
+    });
+  }
+  function updateTagFilter() {
+    const tags = new Set();
+    Object.values(data).forEach((v) => (v.tags || []).forEach((t) => tags.add(t)));
+    const current = $("tagFilter").value;
+    $("tagFilter").innerHTML = '<option value="">全タグ</option>' + [...tags].sort().map((t) => `<option value="${escapeHtml(t)}">${escapeHtml(t)}</option>`).join("");
+    $("tagFilter").value = current;
+  }
+  function searchText(item) { return [item.name, item.memo, ...(item.tags || []), ...(item.notes || [])].join(" ").toLowerCase(); }
+  function updateSearchResults() {
+    const q = $("searchInput").value.trim().toLowerCase();
+    const tag = $("tagFilter").value;
+    const rows = Object.entries(data).filter(([, item]) => (!q || searchText(item).includes(q)) && (!tag || (item.tags || []).includes(tag))).sort((a, b) => b[0].localeCompare(a[0]));
+    $("searchResults").innerHTML = rows.length ? rows.slice(0, 30).map(([date, item]) => `
+      <button class="result" type="button" data-date="${date}">
+        <b>${escapeHtml(date)} / ${escapeHtml(item.name || "名称未設定")}</b>
+        <small>売上 ${money(item.sale || 0)} / 来店 ${item.people || 0}名<br>${escapeHtml((item.tags || []).join(" / ") || "タグなし")}<br>${escapeHtml((item.memo || "").slice(0, 90))}</small>
+      </button>`).join("") : '<div class="result"><b>候補なし</b><small>検索条件を変えてください。</small></div>';
+    $("searchResults").querySelectorAll("[data-date]").forEach((btn) => btn.addEventListener("click", () => selectDate(btn.dataset.date)));
+  }
+  function updateMonthlySummary() {
+    const dates = datesOfMonth(currentYear, currentMonth);
+    let sales = 0;
+    let count = 0;
+    for (const d of dates) {
+      if (data[d]) {
+        sales += Number(data[d].sale || 0);
+        count++;
+      }
+    }
+    $("monthSales").textContent = money(sales);
+    $("monthVisits").textContent = `${count}日`;
+    drawChart(dates);
+  }
+  function drawChart(dates) {
+    const c = $("barChart");
+    const ctx = c.getContext("2d");
+    const dpr = window.devicePixelRatio || 1;
+    const w = c.clientWidth || 800;
+    const h = 260;
+    c.width = Math.round(w * dpr);
+    c.height = Math.round(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+    const sales = dates.map((d) => Number(data[d]?.sale || 0));
+    const max = Math.max(1, ...sales);
+    const left = 36, right = 10, top = 18, bottom = 28;
+    ctx.fillStyle = "#0b1118";
+    ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = "rgba(255,255,255,.08)";
+    for (let i = 0; i < 4; i++) {
+      const y = top + ((h - top - bottom) / 3) * i;
+      ctx.beginPath();
+      ctx.moveTo(left, y);
+      ctx.lineTo(w - right, y);
+      ctx.stroke();
+    }
+    const bw = (w - left - right) / dates.length;
+    dates.forEach((d, i) => {
+      const val = sales[i];
+      const bh = (h - top - bottom) * (val / max);
+      const x = left + i * bw + bw * 0.2;
+      const y = h - bottom - bh;
+      const barw = Math.max(3, bw * 0.6);
+      ctx.fillStyle = "#18c7bf";
+      ctx.fillRect(x, y, barw, bh);
+    });
+    ctx.fillStyle = "#b9c9d8";
+    ctx.font = "12px -apple-system,BlinkMacSystemFont,sans-serif";
+    ctx.fillText("月別売上", 10, 16);
+  }
+  function exportJson() {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "customer-note-backup.json";
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+  function importJson() {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "application/json";
+    input.addEventListener("change", async () => {
+      const file = input.files && input.files[0];
+      if (!file) return;
+      try {
+        data = JSON.parse(await file.text());
+        saveData();
+        renderDetail(selectedDate);
+        showToast("読み込みました");
+      } catch {
+        alert("JSONファイルを読み込めませんでした");
+      }
+    });
+    input.click();
+  }
+  function clearAll() {
+    lastBackup = JSON.parse(JSON.stringify(data));
+    data = {};
+    saveData();
+    renderDetail(selectedDate);
+    showToast("すべて消去しました", () => {
+      data = lastBackup || {};
+      saveData();
+      renderDetail(selectedDate);
+      hideToast();
+    });
+  }
+  function showToast(text, undoAction) {
+    $("toastText").textContent = text;
+    $("undoBtn").style.display = undoAction ? "inline-flex" : "none";
+    $("undoBtn").onclick = undoAction || null;
+    $("toast").style.display = "block";
+    clearTimeout(showToast.timer);
+    showToast.timer = setTimeout(hideToast, 4500);
+  }
+  function hideToast() { $("toast").style.display = "none"; }
+  function showApp() { $("lockScreen").style.display = "none"; $("appRoot").style.display = "block"; }
+  function showLockIfNeeded() {
+    if (localStorage.getItem(PIN_KEY)) {
+      $("appRoot").style.display = "none";
+      $("lockScreen").style.display = "flex";
+    } else {
+      showApp();
+    }
+  }
+  function bind() {
+    $("prevMonthBtn").addEventListener("click", () => { currentMonth--; if (currentMonth < 0) { currentMonth = 11; currentYear--; } renderDetail(selectedDate); });
+    $("nextMonthBtn").addEventListener("click", () => { currentMonth++; if (currentMonth > 11) { currentMonth = 0; currentYear++; } renderDetail(selectedDate); });
+    $("addRecordBtn").addEventListener("click", () => openModal(selectedDate));
+    $("saveBtn").addEventListener("click", () => { saveData(); showToast("保存しました"); });
+    $("loadBtn").addEventListener("click", importJson);
+    $("exportBtn").addEventListener("click", exportJson);
+    $("clearBtn").addEventListener("click", () => { $("confirmBack").style.display = "flex"; });
+    $("closeModalBtn").addEventListener("click", closeModal);
+    $("modalBack").addEventListener("click", (e) => { if (e.target.id === "modalBack") closeModal(); });
+    $("saveRecordBtn").addEventListener("click", saveRecord);
+    $("deleteRecordBtn").addEventListener("click", deleteRecord);
+    $("searchBtn").addEventListener("click", updateSearchResults);
+    $("searchInput").addEventListener("input", updateSearchResults);
+    $("tagFilter").addEventListener("change", updateSearchResults);
+    $("closeConfirmBtn").addEventListener("click", () => { $("confirmBack").style.display = "none"; });
+    $("cancelClearBtn").addEventListener("click", () => { $("confirmBack").style.display = "none"; });
+    $("confirmClearBtn").addEventListener("click", () => { $("confirmBack").style.display = "none"; clearAll(); });
+    $("unlockBtn").addEventListener("click", () => {
+      if ($("pinInput").value === localStorage.getItem(PIN_KEY)) showApp();
+      else alert("PINが違います");
+    });
+    $("setupBtn").addEventListener("click", () => {
+      const pin = $("pinInput").value.trim();
+      if (pin.length < 4) { alert("4桁以上で設定してください"); return; }
+      localStorage.setItem(PIN_KEY, pin);
+      showToast("PINを設定しました");
+      showApp();
+    });
+    $("skipLockBtn").addEventListener("click", showApp);
+    $("resetPinBtn").addEventListener("click", () => { localStorage.removeItem(PIN_KEY); $("pinInput").value = ""; showApp(); showToast("PINを削除しました"); });
+    $("pinInput").addEventListener("keydown", (e) => { if (e.key === "Enter") $("unlockBtn").click(); });
+    window.addEventListener("resize", () => drawChart(datesOfMonth(currentYear, currentMonth)));
+  }
+  bind();
+  renderDetail(selectedDate);
+  showLockIfNeeded();
+})();
 </script>
 </body>
 </html>
