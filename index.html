@@ -19,15 +19,16 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
 .header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}.brand{display:flex;align-items:center;gap:10px}.brand img{width:44px;height:44px;border-radius:12px}.title h1{margin:0;font-size:21px;line-height:1.1}.title span{display:block;margin-top:3px;font-size:12px;color:var(--muted)}.chip{font-size:12px;padding:7px 10px;border-radius:999px;background:rgba(24,199,191,.12);border:1px solid rgba(24,199,191,.25);white-space:nowrap}
 .nav{display:grid;grid-template-columns:52px 1fr 52px;align-items:center;gap:8px}.btn{min-height:48px;border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:14px;font-size:20px}.month{text-align:center;font-size:18px;font-weight:900}
 .weekdays,.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}.weekday{text-align:center;font-size:12px;color:var(--muted);padding:8px 0 3px}.day{min-height:94px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:7px;display:flex;flex-direction:column;justify-content:space-between;text-align:left;color:inherit}.day.empty{background:transparent;border:1px dashed rgba(38,57,77,.35);cursor:default}.day.selected{outline:2px solid rgba(24,199,191,.75)}.date{font-size:13px;font-weight:900}.sale{font-size:12px;font-weight:900}.people{font-size:12px;color:var(--accent2);font-weight:900}.bar{height:6px;width:100%;border-radius:999px;background:rgba(255,255,255,.07);overflow:hidden}.bar span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
-.controls{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:10px}.cbtn{min-height:46px;border:1px solid transparent;border-radius:14px;background:linear-gradient(135deg,#20354d,#162334);color:var(--text);font-weight:800}.cbtn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#031515}.cbtn.warn{background:linear-gradient(135deg,#ffd46b,#ffb24f);color:#2a1900}.cbtn.danger{background:linear-gradient(135deg,#ff8a7a,#ff5f6a);color:white}.cbtn.ghost{border-color:var(--line);background:#1a2635}
+.controls{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:10px}.cbtn{min-height:46px;border:1px solid transparent;border-radius:14px;background:linear-gradient(135deg,#20354d,#162334);color:var(--text);font-weight:800}.cbtn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#031515}.cbtn.warn{background:linear-gradient(135deg,#ffd46b,#ffb24f);color:#2a1900}.cbtn.danger{background:linear-gradient(135deg,#ff8a7a,#ff5f6a);color:white}.cbtn.ghost{border-color:var(--line);background:#1a2635}
 .main{display:grid;grid-template-columns:1.25fr .95fr;gap:10px;margin-top:10px}.panel{padding:12px}.panel h2{margin:0 0 10px;font-size:16px}.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.stat,.result,.item{background:var(--panel2);border:1px solid var(--line);border-radius:14px}.stat{padding:10px}.label{font-size:11px;color:var(--muted);margin-bottom:4px}.value{font-size:20px;font-weight:900}.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.tag{font-size:12px;padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
 .list{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:8px}.item{display:flex;gap:10px;align-items:flex-start;padding:10px}.dot{width:10px;height:10px;border-radius:50%;margin-top:5px;background:linear-gradient(180deg,var(--accent),var(--accent2))}.item strong{display:block;font-size:13px;margin-bottom:3px}.item span,.tiny{font-size:12px;color:var(--muted);line-height:1.55}
-.searchbox{display:grid;gap:8px}.searchbox input,.searchbox select,.field input,.field textarea{width:100%;min-height:46px;border-radius:14px;border:1px solid var(--line);background:#0d151f;color:var(--text);padding:11px 12px}.split{display:grid;grid-template-columns:1fr 112px;gap:8px}.results{margin-top:8px;display:grid;gap:8px;max-height:270px;overflow:auto}.result{padding:10px;text-align:left;color:inherit}.result b{display:block;font-size:14px;margin-bottom:4px}.result small{color:var(--muted);display:block;line-height:1.45}
+.searchbox{display:grid;gap:8px}.searchbox input,.searchbox select,.field input,.field textarea{width:100%;min-height:46px;border-radius:14px;border:1px solid var(--line);background:#0d151f;color:var(--text);padding:11px 12px}.split{display:grid;grid-template-columns:1fr 112px;gap:8px}.filters{display:grid;grid-template-columns:1fr 1fr;gap:8px}.checkrow{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:12px}.checkrow input{width:auto;min-height:auto}.results{margin-top:8px;display:grid;gap:8px;max-height:270px;overflow:auto}.result{padding:10px;text-align:left;color:inherit}.result b{display:block;font-size:14px;margin-bottom:4px}.result small{color:var(--muted);display:block;line-height:1.45}
+.mini-actions,.quicktags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.mini-btn,.tagpick{border:1px solid var(--line);background:#1a2635;color:var(--text);border-radius:999px;padding:7px 10px;font-size:12px;font-weight:800}.photo-link{display:inline-flex;margin-top:6px;color:var(--accent2);font-size:12px;font-weight:800;text-decoration:none}.photo-link:hover{text-decoration:underline}.subpanel{margin-top:10px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:10px}.compact-list{display:grid;gap:7px;margin-top:8px}.compact-row{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:7px;font-size:12px}.compact-row:last-child{border-bottom:0;padding-bottom:0}.compact-row b{font-size:12px}.compact-row span{color:var(--muted);text-align:right}.reminder-badge{display:inline-flex;margin-top:5px;padding:3px 6px;border-radius:999px;background:rgba(255,212,107,.14);color:#ffe6a0;font-size:10px;font-weight:900}
 .modalback{position:fixed;inset:0;background:rgba(0,0,0,.58);display:none;align-items:flex-end;justify-content:center;padding:12px;z-index:20}.modal{width:min(100%,720px);background:#0f1722;border:1px solid var(--line);border-radius:18px;padding:12px;box-shadow:0 22px 54px rgba(0,0,0,.45)}.modalhead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}.modalhead h3{margin:0;font-size:16px}.xbtn{min-width:42px;min-height:42px;border:none;border-radius:12px;background:#1b2837;color:var(--text);font-size:18px}.modalgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.field{display:grid;gap:6px;margin-bottom:8px}.field label{font-size:12px;color:var(--muted)}.field textarea{min-height:90px;resize:vertical}.modalactions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
 .toast{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);background:#0f1722;border:1px solid var(--line);color:var(--text);padding:12px 14px;border-radius:14px;box-shadow:0 16px 40px rgba(0,0,0,.4);display:none;z-index:30;max-width:min(92vw,560px)}
 .lock{position:fixed;inset:0;z-index:99;background:radial-gradient(circle at top,#13253a 0%,#091019 62%,#060b11 100%);display:none;align-items:center;justify-content:center;padding:14px}.lock-card{width:min(100%,420px);background:rgba(16,27,38,.98);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 20px 60px rgba(0,0,0,.5)}.lock-card h2{margin:0 0 8px;font-size:22px}.lock-card p{margin:0 0 14px;color:var(--muted);line-height:1.6}.lock-card input{width:100%;min-height:52px;border-radius:14px;border:1px solid var(--line);background:#0d151f;color:var(--text);padding:12px 14px;font-size:18px;letter-spacing:.2em;text-align:center}.lock-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
-@media (max-width:860px){.main{grid-template-columns:1fr}.controls{grid-template-columns:repeat(2,1fr)}.day{min-height:84px}}
-@media (max-width:460px){.wrap{padding:8px}.header{align-items:flex-start}.brand img{width:38px;height:38px}.chip{display:none}.day{min-height:76px;padding:5px}.date,.sale,.people{font-size:11px}.controls{grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}.controls .cbtn{min-height:38px;padding:0 4px;border-radius:10px;font-size:12px;line-height:1.1}.row,.modalgrid,.lock-actions{grid-template-columns:1fr}.split{grid-template-columns:1fr}.month{font-size:16px}}
+@media (max-width:860px){.main{grid-template-columns:1fr}.controls{grid-template-columns:repeat(3,1fr)}.day{min-height:84px}}
+@media (max-width:460px){.wrap{padding:8px}.header{align-items:flex-start}.brand img{width:38px;height:38px}.chip{display:none}.day{min-height:76px;padding:5px}.date,.sale,.people{font-size:11px}.controls{grid-template-columns:repeat(6,minmax(0,1fr));gap:5px}.controls .cbtn{min-height:38px;padding:0 2px;border-radius:10px;font-size:11px;line-height:1.1}.row,.modalgrid,.lock-actions,.filters{grid-template-columns:1fr}.split{grid-template-columns:1fr}.month{font-size:16px}}
 </style>
 </head>
 <body>
@@ -61,6 +62,7 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
       <button class="cbtn" id="saveBtn" type="button">保存</button>
       <button class="cbtn" id="loadBtn" type="button">読込</button>
       <button class="cbtn warn" id="exportBtn" type="button">書出</button>
+      <button class="cbtn warn" id="csvBtn" type="button">CSV</button>
       <button class="cbtn danger" id="clearBtn" type="button">全消去</button>
     </div>
   </section>
@@ -69,19 +71,26 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
       <h2 id="detailTitle">日別詳細</h2>
       <div class="row"><div class="stat"><div class="label">売上</div><div class="value" id="saleValue">-</div></div><div class="stat"><div class="label">来店数</div><div class="value" id="peopleValue">-</div></div></div>
       <div class="tags" id="tagArea"></div>
+      <div class="mini-actions"><button class="mini-btn" id="historyBtn" type="button">顧客履歴</button><button class="mini-btn" id="editSelectedBtn" type="button">この日を編集</button></div>
       <ul class="list" id="logList"></ul>
       <div class="tiny">日付を押すと詳細が切り替わります。「記録追加」から編集できます。</div>
+      <div class="subpanel"><h2>次回来店予定</h2><div class="compact-list" id="reminderList"></div></div>
     </section>
     <section class="panel">
       <h2>顧客検索</h2>
       <div class="searchbox">
         <input id="searchInput" placeholder="名前 / 特徴 / メモ / タグで検索" />
         <div class="split"><select id="tagFilter"><option value="">全タグ</option></select><button class="cbtn primary" id="searchBtn" type="button">検索</button></div>
+        <div class="filters"><select id="monthFilter"><option value="">全期間</option></select><input id="minSaleFilter" type="number" min="0" step="1" placeholder="売上下限" /></div>
+        <label class="checkrow"><input id="photoOnlyFilter" type="checkbox" />写真リンクありだけ</label>
+        <label class="checkrow"><input id="memoOnlyFilter" type="checkbox" />メモありだけ</label>
         <div class="results" id="searchResults"></div>
       </div>
       <h2 style="margin-top:14px">月まとめ</h2>
       <div class="row"><div class="stat"><div class="label">月売上</div><div class="value" id="monthSales">-</div></div><div class="stat"><div class="label">記録日数</div><div class="value" id="monthVisits">-</div></div></div>
       <canvas id="barChart" width="800" height="260" style="width:100%;margin-top:10px;background:#0b1118;border:1px solid var(--line);border-radius:14px"></canvas>
+      <div class="subpanel"><h2>顧客ランキング</h2><div class="compact-list" id="rankingList"></div></div>
+      <div class="subpanel"><h2>ロック設定</h2><div class="filters"><select id="lockMode"><option value="off">ロックしない</option><option value="on">PINロックする</option></select><select id="autoLockMinutes"><option value="0">自動ロックなし</option><option value="1">1分後</option><option value="5">5分後</option><option value="15">15分後</option></select></div><button class="cbtn ghost" id="applyLockBtn" type="button" style="width:100%;margin-top:8px">設定を反映</button></div>
     </section>
   </div>
 </div>
@@ -92,6 +101,10 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
     <div class="modalgrid"><div class="field"><label>日付</label><input id="fDate" type="date" /></div><div class="field"><label>顧客名</label><input id="fName" type="text" placeholder="例: 山田太郎" /></div></div>
     <div class="modalgrid"><div class="field"><label>売上</label><input id="fSale" type="number" min="0" step="1" placeholder="例: 49000" /></div><div class="field"><label>来店数</label><input id="fPeople" type="number" min="0" step="1" placeholder="例: 13" /></div></div>
     <div class="field"><label>タグ / 特徴（カンマ区切り）</label><input id="fTags" type="text" placeholder="常連, カラオケ多め, ボトルあり" /></div>
+    <div class="quicktags" id="quickTags"></div>
+    <div class="modalgrid"><div class="field"><label>次回来店予定</label><input id="fNextDate" type="date" /></div><div class="field"><label>予定メモ</label><input id="fReminder" type="text" placeholder="例: 誕生日、ボトル期限、要連絡" /></div></div>
+    <div class="field"><label>写真URL / 共有リンク</label><input id="fPhotoUrl" type="url" placeholder="Google Drive / iCloud / Dropbox の共有リンク" /></div>
+    <div class="field"><label>写真説明メモ</label><input id="fPhotoMemo" type="text" placeholder="例: ボトル写真、名刺、席の好み" /></div>
     <div class="field"><label>その日のメモ</label><textarea id="fMemo" placeholder="例: 先月グラスを割ったお客様。ボトル更新。"></textarea></div>
     <div class="field"><label>追記メモ（複数行）</label><textarea id="fNotes" placeholder="1行ずつ入力できます。検索にも使われます。"></textarea></div>
     <div class="modalactions"><button class="cbtn primary" id="saveRecordBtn" type="button">保存する</button><button class="cbtn danger" id="deleteRecordBtn" type="button">この日を削除</button></div>
@@ -106,18 +119,30 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
   </div>
 </div>
 
+<div class="modalback" id="historyBack" style="align-items:center">
+  <div class="modal">
+    <div class="modalhead"><h3 id="historyTitle">顧客履歴</h3><button class="xbtn" id="closeHistoryBtn" type="button">×</button></div>
+    <div class="row"><div class="stat"><div class="label">合計売上</div><div class="value" id="historySales">-</div></div><div class="stat"><div class="label">来店回数</div><div class="value" id="historyVisits">-</div></div></div>
+    <div class="compact-list" id="historyList"></div>
+  </div>
+</div>
+
 <div class="toast" id="toast"><span id="toastText"></span> <button class="cbtn warn" id="undoBtn" type="button" style="min-height:36px;margin-left:10px">元に戻す</button></div>
 
 <script>
 (() => {
   const LS_KEY = "customer_note_data_v5";
   const PIN_KEY = "customer_note_pin_v1";
+  const LOCK_ENABLED_KEY = "customer_note_lock_enabled_v1";
+  const AUTO_LOCK_KEY = "customer_note_auto_lock_minutes_v1";
+  const QUICK_TAGS = ["常連", "新規", "VIP", "ボトルあり", "要フォロー", "誕生日", "同伴", "カラオケ"];
   const today = new Date();
   let currentYear = today.getFullYear();
   let currentMonth = today.getMonth();
   let selectedDate = isoDate(today);
   let data = loadData();
   let lastBackup = null;
+  let autoLockTimer = null;
   const $ = (id) => document.getElementById(id);
 
   function isoDate(d) { return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`; }
@@ -125,6 +150,10 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
   function money(n) { return "¥" + Number(n || 0).toLocaleString("ja-JP"); }
   function shortMoney(n) { const v = Number(n || 0); return v ? `${(v / 10000).toFixed(v >= 100000 ? 0 : 1).replace(/\.0$/, "")}万` : "-"; }
   function escapeHtml(s) { return String(s || "").replace(/[&<>"']/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m])); }
+  function safeUrl(s) {
+    const url = String(s || "").trim();
+    return /^https?:\/\//i.test(url) ? url : "";
+  }
   function defaultData() {
     return {
       [selectedDate]: {
@@ -132,6 +161,10 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
         sale: 49000,
         people: 13,
         tags: ["常連", "ボトルあり"],
+        nextDate: "",
+        reminder: "",
+        photoUrl: "",
+        photoMemo: "",
         memo: "ここに顧客メモや出来事を保存できます。",
         notes: ["検索欄から名前、タグ、メモを探せます。"]
       }
@@ -146,6 +179,20 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
     }
   }
   function saveData() { localStorage.setItem(LS_KEY, JSON.stringify(data)); }
+  function normalizeItem(item = {}) {
+    return {
+      name: item.name || "",
+      sale: Number(item.sale || 0),
+      people: Number(item.people || 0),
+      tags: Array.isArray(item.tags) ? item.tags : [],
+      nextDate: item.nextDate || "",
+      reminder: item.reminder || "",
+      photoUrl: item.photoUrl || "",
+      photoMemo: item.photoMemo || "",
+      memo: item.memo || "",
+      notes: Array.isArray(item.notes) ? item.notes : []
+    };
+  }
 
   function datesOfMonth(y, m) {
     const end = new Date(y, m + 1, 0).getDate();
@@ -160,13 +207,15 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
     const dates = datesOfMonth(currentYear, currentMonth);
     const maxSale = Math.max(1, ...dates.map((d) => Number(data[d]?.sale || 0)));
     for (const date of dates) {
-      const item = data[date];
+      const item = data[date] ? normalizeItem(data[date]) : null;
+      const hasDue = Object.values(data).some((v) => normalizeItem(v).nextDate === date);
       const day = Number(date.slice(8, 10));
       const width = item ? Math.round((Number(item.sale || 0) / maxSale) * 100) : 0;
       grid.insertAdjacentHTML("beforeend", `
         <button class="day ${date === selectedDate ? "selected" : ""}" data-date="${date}" type="button">
           <div class="date">${day}</div>
           <div><div class="sale">${item ? shortMoney(item.sale) : "-"}</div><div class="people">${item ? `${item.people || 0}名` : "未入力"}</div></div>
+          ${hasDue ? '<div class="reminder-badge">予定</div>' : ""}
           <div class="bar"><span style="width:${width}%"></span></div>
         </button>`);
     }
@@ -174,28 +223,38 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
   }
   function renderDetail(date) {
     selectedDate = date;
-    const item = data[date] || { name: "", sale: 0, people: 0, tags: [], memo: "", notes: [] };
+    const item = normalizeItem(data[date]);
     $("detailTitle").textContent = `${Number(date.slice(5, 7))}月${Number(date.slice(8, 10))}日の詳細`;
     $("saleValue").textContent = item.sale ? money(item.sale) : "-";
     $("peopleValue").textContent = item.people ? `${item.people}名` : "-";
     $("tagArea").innerHTML = (item.tags || []).map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join("") || '<span class="tag">タグなし</span>';
-    const notes = [item.memo, ...(item.notes || [])].filter(Boolean);
+    const extras = [];
+    if (item.nextDate || item.reminder) extras.push(`次回予定: ${item.nextDate || "日付未定"} ${item.reminder || ""}`.trim());
+    const photoUrl = safeUrl(item.photoUrl);
+    if (photoUrl) extras.push(`<a class="photo-link" href="${escapeHtml(photoUrl)}" target="_blank" rel="noopener">写真リンクを開く</a>${item.photoMemo ? `<span>${escapeHtml(item.photoMemo)}</span>` : ""}`);
+    const notes = [item.memo, ...extras, ...(item.notes || [])].filter(Boolean);
     $("logList").innerHTML = notes.length
-      ? notes.map((n) => `<li class="item"><div class="dot"></div><div><strong>${escapeHtml(n)}</strong><span>${escapeHtml(item.name || "名称未設定")}</span></div></li>`).join("")
+      ? notes.map((n) => `<li class="item"><div class="dot"></div><div><strong>${String(n).startsWith('<a class="photo-link"') ? n : escapeHtml(n)}</strong><span>${escapeHtml(item.name || "名称未設定")}</span></div></li>`).join("")
       : '<li class="item"><div class="dot"></div><div><strong>記録なし</strong><span>この日の内容を追加できます。</span></div></li>';
     fillModal(date);
     renderCalendar();
     updateTagFilter();
     updateSearchResults();
     updateMonthlySummary();
+    updateReminders();
+    updateRankings();
   }
   function fillModal(date) {
-    const item = data[date] || { name: "", sale: "", people: "", tags: [], memo: "", notes: [] };
+    const item = normalizeItem(data[date]);
     $("fDate").value = date;
     $("fName").value = item.name || "";
     $("fSale").value = item.sale || "";
     $("fPeople").value = item.people || "";
     $("fTags").value = (item.tags || []).join(", ");
+    $("fNextDate").value = item.nextDate || "";
+    $("fReminder").value = item.reminder || "";
+    $("fPhotoUrl").value = item.photoUrl || "";
+    $("fPhotoMemo").value = item.photoMemo || "";
     $("fMemo").value = item.memo || "";
     $("fNotes").value = (item.notes || []).join("\n");
   }
@@ -214,6 +273,10 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
       sale: Number($("fSale").value || 0),
       people: Number($("fPeople").value || 0),
       tags: $("fTags").value.split(",").map((s) => s.trim()).filter(Boolean),
+      nextDate: $("fNextDate").value,
+      reminder: $("fReminder").value.trim(),
+      photoUrl: $("fPhotoUrl").value.trim(),
+      photoMemo: $("fPhotoMemo").value.trim(),
       memo: $("fMemo").value.trim(),
       notes: $("fNotes").value.split(/\n+/).map((s) => s.trim()).filter(Boolean)
     };
@@ -246,16 +309,40 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
     const current = $("tagFilter").value;
     $("tagFilter").innerHTML = '<option value="">全タグ</option>' + [...tags].sort().map((t) => `<option value="${escapeHtml(t)}">${escapeHtml(t)}</option>`).join("");
     $("tagFilter").value = current;
+    const months = [...new Set(Object.keys(data).map((date) => date.slice(0, 7)))].sort().reverse();
+    const monthCurrent = $("monthFilter").value;
+    $("monthFilter").innerHTML = '<option value="">全期間</option>' + months.map((m) => `<option value="${m}">${m}</option>`).join("");
+    $("monthFilter").value = monthCurrent;
   }
-  function searchText(item) { return [item.name, item.memo, ...(item.tags || []), ...(item.notes || [])].join(" ").toLowerCase(); }
+  function renderQuickTags() {
+    $("quickTags").innerHTML = QUICK_TAGS.map((tag) => `<button class="tagpick" type="button" data-tag="${escapeHtml(tag)}">${escapeHtml(tag)}</button>`).join("");
+    $("quickTags").querySelectorAll("[data-tag]").forEach((btn) => btn.addEventListener("click", () => {
+      const tag = btn.dataset.tag;
+      const tags = $("fTags").value.split(",").map((s) => s.trim()).filter(Boolean);
+      if (!tags.includes(tag)) tags.push(tag);
+      $("fTags").value = tags.join(", ");
+    }));
+  }
+  function searchText(item) { return [item.name, item.memo, item.reminder, item.photoMemo, item.photoUrl, ...(item.tags || []), ...(item.notes || [])].join(" ").toLowerCase(); }
   function updateSearchResults() {
     const q = $("searchInput").value.trim().toLowerCase();
     const tag = $("tagFilter").value;
-    const rows = Object.entries(data).filter(([, item]) => (!q || searchText(item).includes(q)) && (!tag || (item.tags || []).includes(tag))).sort((a, b) => b[0].localeCompare(a[0]));
+    const month = $("monthFilter").value;
+    const minSale = Number($("minSaleFilter").value || 0);
+    const photoOnly = $("photoOnlyFilter").checked;
+    const memoOnly = $("memoOnlyFilter").checked;
+    const rows = Object.entries(data).map(([date, item]) => [date, normalizeItem(item)]).filter(([date, item]) =>
+      (!q || searchText(item).includes(q)) &&
+      (!tag || (item.tags || []).includes(tag)) &&
+      (!month || date.startsWith(month)) &&
+      (!minSale || Number(item.sale || 0) >= minSale) &&
+      (!photoOnly || !!item.photoUrl) &&
+      (!memoOnly || !!item.memo || (item.notes || []).length > 0)
+    ).sort((a, b) => b[0].localeCompare(a[0]));
     $("searchResults").innerHTML = rows.length ? rows.slice(0, 30).map(([date, item]) => `
       <button class="result" type="button" data-date="${date}">
         <b>${escapeHtml(date)} / ${escapeHtml(item.name || "名称未設定")}</b>
-        <small>売上 ${money(item.sale || 0)} / 来店 ${item.people || 0}名<br>${escapeHtml((item.tags || []).join(" / ") || "タグなし")}<br>${escapeHtml((item.memo || "").slice(0, 90))}</small>
+        <small>売上 ${money(item.sale || 0)} / 来店 ${item.people || 0}名<br>${escapeHtml((item.tags || []).join(" / ") || "タグなし")}<br>${escapeHtml((item.memo || item.photoMemo || item.reminder || "").slice(0, 90))}</small>
       </button>`).join("") : '<div class="result"><b>候補なし</b><small>検索条件を変えてください。</small></div>';
     $("searchResults").querySelectorAll("[data-date]").forEach((btn) => btn.addEventListener("click", () => selectDate(btn.dataset.date)));
   }
@@ -272,6 +359,56 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
     $("monthSales").textContent = money(sales);
     $("monthVisits").textContent = `${count}日`;
     drawChart(dates);
+  }
+  function updateReminders() {
+    const rows = Object.entries(data).map(([date, item]) => [date, normalizeItem(item)])
+      .filter(([, item]) => item.nextDate || item.reminder)
+      .sort((a, b) => (a[1].nextDate || "9999-99-99").localeCompare(b[1].nextDate || "9999-99-99"))
+      .slice(0, 6);
+    $("reminderList").innerHTML = rows.length ? rows.map(([date, item]) => `
+      <button class="result" type="button" data-date="${date}">
+        <b>${escapeHtml(item.nextDate || "日付未定")} / ${escapeHtml(item.name || "名称未設定")}</b>
+        <small>${escapeHtml(item.reminder || "予定メモなし")}<br>記録日 ${escapeHtml(date)}</small>
+      </button>`).join("") : '<div class="tiny">予定はまだありません。</div>';
+    $("reminderList").querySelectorAll("[data-date]").forEach((btn) => btn.addEventListener("click", () => selectDate(btn.dataset.date)));
+  }
+  function customerTotals() {
+    const map = new Map();
+    for (const [date, raw] of Object.entries(data)) {
+      const item = normalizeItem(raw);
+      const name = item.name || "名称未設定";
+      const row = map.get(name) || { name, sales: 0, visits: 0, dates: [] };
+      row.sales += Number(item.sale || 0);
+      row.visits += 1;
+      row.dates.push({ date, item });
+      map.set(name, row);
+    }
+    return [...map.values()];
+  }
+  function updateRankings() {
+    const rows = customerTotals().sort((a, b) => b.sales - a.sales || b.visits - a.visits).slice(0, 5);
+    $("rankingList").innerHTML = rows.length ? rows.map((r, i) => `
+      <button class="result" type="button" data-name="${escapeHtml(r.name)}">
+        <b>${i + 1}. ${escapeHtml(r.name)}</b>
+        <small>合計 ${money(r.sales)} / ${r.visits}回</small>
+      </button>`).join("") : '<div class="tiny">ランキングはまだありません。</div>';
+    $("rankingList").querySelectorAll("[data-name]").forEach((btn) => btn.addEventListener("click", () => showHistory(btn.dataset.name)));
+  }
+  function showHistory(name) {
+    const rows = Object.entries(data).map(([date, item]) => [date, normalizeItem(item)])
+      .filter(([, item]) => (item.name || "名称未設定") === name)
+      .sort((a, b) => b[0].localeCompare(a[0]));
+    const sales = rows.reduce((sum, [, item]) => sum + Number(item.sale || 0), 0);
+    $("historyTitle").textContent = `${name} の履歴`;
+    $("historySales").textContent = money(sales);
+    $("historyVisits").textContent = `${rows.length}回`;
+    $("historyList").innerHTML = rows.length ? rows.map(([date, item]) => `
+      <button class="result" type="button" data-date="${date}">
+        <b>${escapeHtml(date)} / ${money(item.sale)}</b>
+        <small>${escapeHtml((item.tags || []).join(" / ") || "タグなし")}<br>${escapeHtml(item.memo || item.reminder || item.photoMemo || "")}</small>
+      </button>`).join("") : '<div class="tiny">履歴がありません。</div>';
+    $("historyList").querySelectorAll("[data-date]").forEach((btn) => btn.addEventListener("click", () => { $("historyBack").style.display = "none"; selectDate(btn.dataset.date); }));
+    $("historyBack").style.display = "flex";
   }
   function drawChart(dates) {
     const c = $("barChart");
@@ -318,6 +455,23 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
     a.click();
     URL.revokeObjectURL(a.href);
   }
+  function csvCell(v) {
+    return `"${String(v ?? "").replace(/"/g, '""')}"`;
+  }
+  function exportCsv() {
+    const header = ["日付", "顧客名", "売上", "来店数", "タグ", "次回来店予定", "予定メモ", "写真URL", "写真説明", "メモ", "追記メモ"];
+    const rows = Object.entries(data).sort((a, b) => a[0].localeCompare(b[0])).map(([date, raw]) => {
+      const item = normalizeItem(raw);
+      return [date, item.name, item.sale, item.people, (item.tags || []).join(" / "), item.nextDate, item.reminder, item.photoUrl, item.photoMemo, item.memo, (item.notes || []).join(" / ")].map(csvCell).join(",");
+    });
+    const csv = "\uFEFF" + [header.map(csvCell).join(","), ...rows].join("\n");
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "customer-note.csv";
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
   function importJson() {
     const input = document.createElement("input");
     input.type = "file";
@@ -357,22 +511,49 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
     showToast.timer = setTimeout(hideToast, 4500);
   }
   function hideToast() { $("toast").style.display = "none"; }
-  function showApp() { $("lockScreen").style.display = "none"; $("appRoot").style.display = "block"; }
+  function showApp() { $("lockScreen").style.display = "none"; $("appRoot").style.display = "block"; resetAutoLockTimer(); }
+  function lockEnabled() { return localStorage.getItem(LOCK_ENABLED_KEY) === "1"; }
   function showLockIfNeeded() {
-    if (localStorage.getItem(PIN_KEY)) {
+    if (lockEnabled() && localStorage.getItem(PIN_KEY)) {
       $("appRoot").style.display = "none";
       $("lockScreen").style.display = "flex";
     } else {
       showApp();
     }
   }
+  function refreshLockSettings() {
+    $("lockMode").value = lockEnabled() ? "on" : "off";
+    $("autoLockMinutes").value = localStorage.getItem(AUTO_LOCK_KEY) || "0";
+  }
+  function applyLockSettings() {
+    localStorage.setItem(LOCK_ENABLED_KEY, $("lockMode").value === "on" ? "1" : "0");
+    localStorage.setItem(AUTO_LOCK_KEY, $("autoLockMinutes").value);
+    showToast("ロック設定を反映しました");
+    resetAutoLockTimer();
+  }
+  function resetAutoLockTimer() {
+    clearTimeout(autoLockTimer);
+    const minutes = Number(localStorage.getItem(AUTO_LOCK_KEY) || 0);
+    if (!lockEnabled() || !localStorage.getItem(PIN_KEY) || !minutes) return;
+    autoLockTimer = setTimeout(() => {
+      $("pinInput").value = "";
+      $("appRoot").style.display = "none";
+      $("lockScreen").style.display = "flex";
+    }, minutes * 60 * 1000);
+  }
   function bind() {
     $("prevMonthBtn").addEventListener("click", () => { currentMonth--; if (currentMonth < 0) { currentMonth = 11; currentYear--; } renderDetail(selectedDate); });
     $("nextMonthBtn").addEventListener("click", () => { currentMonth++; if (currentMonth > 11) { currentMonth = 0; currentYear++; } renderDetail(selectedDate); });
     $("addRecordBtn").addEventListener("click", () => openModal(selectedDate));
+    $("editSelectedBtn").addEventListener("click", () => openModal(selectedDate));
+    $("historyBtn").addEventListener("click", () => {
+      const name = normalizeItem(data[selectedDate]).name || "名称未設定";
+      showHistory(name);
+    });
     $("saveBtn").addEventListener("click", () => { saveData(); showToast("保存しました"); });
     $("loadBtn").addEventListener("click", importJson);
     $("exportBtn").addEventListener("click", exportJson);
+    $("csvBtn").addEventListener("click", exportCsv);
     $("clearBtn").addEventListener("click", () => { $("confirmBack").style.display = "flex"; });
     $("closeModalBtn").addEventListener("click", closeModal);
     $("modalBack").addEventListener("click", (e) => { if (e.target.id === "modalBack") closeModal(); });
@@ -381,9 +562,16 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
     $("searchBtn").addEventListener("click", updateSearchResults);
     $("searchInput").addEventListener("input", updateSearchResults);
     $("tagFilter").addEventListener("change", updateSearchResults);
+    $("monthFilter").addEventListener("change", updateSearchResults);
+    $("minSaleFilter").addEventListener("input", updateSearchResults);
+    $("photoOnlyFilter").addEventListener("change", updateSearchResults);
+    $("memoOnlyFilter").addEventListener("change", updateSearchResults);
     $("closeConfirmBtn").addEventListener("click", () => { $("confirmBack").style.display = "none"; });
     $("cancelClearBtn").addEventListener("click", () => { $("confirmBack").style.display = "none"; });
     $("confirmClearBtn").addEventListener("click", () => { $("confirmBack").style.display = "none"; clearAll(); });
+    $("closeHistoryBtn").addEventListener("click", () => { $("historyBack").style.display = "none"; });
+    $("historyBack").addEventListener("click", (e) => { if (e.target.id === "historyBack") $("historyBack").style.display = "none"; });
+    $("applyLockBtn").addEventListener("click", applyLockSettings);
     $("unlockBtn").addEventListener("click", () => {
       if ($("pinInput").value === localStorage.getItem(PIN_KEY)) showApp();
       else alert("PINが違います");
@@ -392,15 +580,20 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
       const pin = $("pinInput").value.trim();
       if (pin.length < 4) { alert("4桁以上で設定してください"); return; }
       localStorage.setItem(PIN_KEY, pin);
+      localStorage.setItem(LOCK_ENABLED_KEY, "1");
+      refreshLockSettings();
       showToast("PINを設定しました");
       showApp();
     });
     $("skipLockBtn").addEventListener("click", showApp);
-    $("resetPinBtn").addEventListener("click", () => { localStorage.removeItem(PIN_KEY); $("pinInput").value = ""; showApp(); showToast("PINを削除しました"); });
+    $("resetPinBtn").addEventListener("click", () => { localStorage.removeItem(PIN_KEY); localStorage.setItem(LOCK_ENABLED_KEY, "0"); $("pinInput").value = ""; refreshLockSettings(); showApp(); showToast("PINを削除しました"); });
     $("pinInput").addEventListener("keydown", (e) => { if (e.key === "Enter") $("unlockBtn").click(); });
+    ["click", "keydown", "touchstart"].forEach((eventName) => window.addEventListener(eventName, resetAutoLockTimer, { passive: true }));
     window.addEventListener("resize", () => drawChart(datesOfMonth(currentYear, currentMonth)));
   }
   bind();
+  renderQuickTags();
+  refreshLockSettings();
   renderDetail(selectedDate);
   showLockIfNeeded();
 })();
