@@ -84,6 +84,7 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
         <div class="filters"><select id="monthFilter"><option value="">全期間</option></select><input id="minSaleFilter" type="number" min="0" step="1" placeholder="売上下限" /></div>
         <label class="checkrow"><input id="photoOnlyFilter" type="checkbox" />写真リンクありだけ</label>
         <label class="checkrow"><input id="memoOnlyFilter" type="checkbox" />メモありだけ</label>
+        <div class="subpanel" id="selectedCustomerPanel"><h2>選択中の顧客</h2><div class="compact-list" id="selectedCustomerInfo"></div></div>
         <div class="results" id="searchResults"></div>
       </div>
       <h2 style="margin-top:14px">月まとめ</h2>
@@ -243,6 +244,7 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
     updateMonthlySummary();
     updateReminders();
     updateRankings();
+    updateSelectedCustomerPanel(date);
   }
   function fillModal(date) {
     const item = normalizeItem(data[date]);
@@ -344,7 +346,10 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
         <b>${escapeHtml(date)} / ${escapeHtml(item.name || "名称未設定")}</b>
         <small>売上 ${money(item.sale || 0)} / 来店 ${item.people || 0}名<br>${escapeHtml((item.tags || []).join(" / ") || "タグなし")}<br>${escapeHtml((item.memo || item.photoMemo || item.reminder || "").slice(0, 90))}</small>
       </button>`).join("") : '<div class="result"><b>候補なし</b><small>検索条件を変えてください。</small></div>';
-    $("searchResults").querySelectorAll("[data-date]").forEach((btn) => btn.addEventListener("click", () => selectDate(btn.dataset.date)));
+    $("searchResults").querySelectorAll("[data-date]").forEach((btn) => btn.addEventListener("click", () => {
+      selectDate(btn.dataset.date);
+      updateSelectedCustomerPanel(btn.dataset.date);
+    }));
   }
   function updateMonthlySummary() {
     const dates = datesOfMonth(currentYear, currentMonth);
@@ -409,6 +414,26 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
       </button>`).join("") : '<div class="tiny">履歴がありません。</div>';
     $("historyList").querySelectorAll("[data-date]").forEach((btn) => btn.addEventListener("click", () => { $("historyBack").style.display = "none"; selectDate(btn.dataset.date); }));
     $("historyBack").style.display = "flex";
+  }
+  function updateSelectedCustomerPanel(date = selectedDate) {
+    const item = normalizeItem(data[date]);
+    const name = item.name || "名称未設定";
+    const rows = Object.entries(data).map(([d, raw]) => [d, normalizeItem(raw)])
+      .filter(([, row]) => (row.name || "名称未設定") === name)
+      .sort((a, b) => b[0].localeCompare(a[0]));
+    const sales = rows.reduce((sum, [, row]) => sum + Number(row.sale || 0), 0);
+    const latest = rows[0];
+    $("selectedCustomerInfo").innerHTML = rows.length ? `
+      <div class="compact-row"><b>${escapeHtml(name)}</b><span>${rows.length}件 / ${money(sales)}</span></div>
+      <div class="compact-row"><b>最新来店</b><span>${escapeHtml(latest[0])}</span></div>
+      <div class="compact-row"><b>写真</b><span>${rows.some(([, row]) => row.photoUrl) ? "リンクあり" : "なし"}</span></div>
+      <div class="tiny">${escapeHtml(latest[1].memo || latest[1].reminder || latest[1].photoMemo || "メモなし")}</div>
+      <div class="mini-actions"><button class="mini-btn" id="selectedHistoryBtn" type="button">来店履歴を見る</button><button class="mini-btn" id="selectedEditBtn" type="button">選択日を編集</button></div>
+    ` : '<div class="tiny">検索結果または日付を選ぶと、ここに顧客情報が出ます。</div>';
+    const historyBtn = $("selectedHistoryBtn");
+    const editBtn = $("selectedEditBtn");
+    if (historyBtn) historyBtn.addEventListener("click", () => showHistory(name));
+    if (editBtn) editBtn.addEventListener("click", () => openModal(selectedDate));
   }
   function drawChart(dates) {
     const c = $("barChart");
