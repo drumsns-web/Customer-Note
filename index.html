@@ -19,7 +19,7 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
 .header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}.brand{display:flex;align-items:center;gap:10px}.brand img{width:44px;height:44px;border-radius:12px}.title h1{margin:0;font-size:21px;line-height:1.1}.title span{display:block;margin-top:3px;font-size:12px;color:var(--muted)}.chip{font-size:12px;padding:7px 10px;border-radius:999px;background:rgba(24,199,191,.12);border:1px solid rgba(24,199,191,.25);white-space:nowrap}
 .nav{display:grid;grid-template-columns:52px 1fr 52px;align-items:center;gap:8px}.btn{min-height:48px;border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:14px;font-size:20px}.month{text-align:center;font-size:18px;font-weight:900}
 .weekdays,.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}.weekday{text-align:center;font-size:12px;color:var(--muted);padding:8px 0 3px}.day{min-height:94px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:7px;display:flex;flex-direction:column;justify-content:space-between;text-align:left;color:inherit}.day.empty{background:transparent;border:1px dashed rgba(38,57,77,.35);cursor:default}.day.selected{outline:2px solid rgba(24,199,191,.75)}.date{font-size:13px;font-weight:900}.sale{font-size:12px;font-weight:900}.people{font-size:12px;color:var(--accent2);font-weight:900}.bar{height:6px;width:100%;border-radius:999px;background:rgba(255,255,255,.07);overflow:hidden}.bar span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
-.controls{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:10px}.cbtn{min-height:46px;border:1px solid transparent;border-radius:14px;background:linear-gradient(135deg,#20354d,#162334);color:var(--text);font-weight:800}.cbtn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#031515}.cbtn.warn{background:linear-gradient(135deg,#ffd46b,#ffb24f);color:#2a1900}.cbtn.danger{background:linear-gradient(135deg,#ff8a7a,#ff5f6a);color:white}.cbtn.ghost{border-color:var(--line);background:#1a2635}
+.controls{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:10px}.cbtn{min-height:46px;border:1px solid transparent;border-radius:14px;background:linear-gradient(135deg,#20354d,#162334);color:var(--text);font-weight:800}.cbtn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#031515}.cbtn.warn{background:linear-gradient(135deg,#ffd46b,#ffb24f);color:#2a1900}.cbtn.danger{background:linear-gradient(135deg,#ff8a7a,#ff5f6a);color:white}.cbtn.ghost{border-color:var(--line);background:#1a2635}
 .main{display:grid;grid-template-columns:1.25fr .95fr;gap:10px;margin-top:10px}.panel{padding:12px}.panel h2{margin:0 0 10px;font-size:16px}.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.stat,.result,.item{background:var(--panel2);border:1px solid var(--line);border-radius:14px}.stat{padding:10px}.label{font-size:11px;color:var(--muted);margin-bottom:4px}.value{font-size:20px;font-weight:900}.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.tag{font-size:12px;padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
 .list{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:8px}.item{display:flex;gap:10px;align-items:flex-start;padding:10px}.dot{width:10px;height:10px;border-radius:50%;margin-top:5px;background:linear-gradient(180deg,var(--accent),var(--accent2))}.item strong{display:block;font-size:13px;margin-bottom:3px}.item span,.tiny{font-size:12px;color:var(--muted);line-height:1.55}
 .searchbox{display:grid;gap:8px}.searchbox input,.searchbox select,.field input,.field textarea{width:100%;min-height:46px;border-radius:14px;border:1px solid var(--line);background:#0d151f;color:var(--text);padding:11px 12px}.split{display:grid;grid-template-columns:1fr 112px;gap:8px}.filters{display:grid;grid-template-columns:1fr 1fr;gap:8px}.checkrow{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:12px}.checkrow input{width:auto;min-height:auto}.results{margin-top:8px;display:grid;gap:8px;max-height:270px;overflow:auto}.result{padding:10px;text-align:left;color:inherit}.result b{display:block;font-size:14px;margin-bottom:4px}.result small{color:var(--muted);display:block;line-height:1.45}
@@ -27,8 +27,8 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
 .modalback{position:fixed;inset:0;background:rgba(0,0,0,.58);display:none;align-items:flex-end;justify-content:center;padding:12px;z-index:20;overflow-y:auto;overscroll-behavior:contain}.modal{width:min(100%,720px);max-height:calc(100dvh - 24px);overflow-y:auto;-webkit-overflow-scrolling:touch;background:#0f1722;border:1px solid var(--line);border-radius:18px;padding:12px;box-shadow:0 22px 54px rgba(0,0,0,.45)}.modalhead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px;position:sticky;top:-12px;background:#0f1722;padding-top:12px;z-index:2}.modalhead h3{margin:0;font-size:16px}.xbtn{min-width:42px;min-height:42px;border:none;border-radius:12px;background:#1b2837;color:var(--text);font-size:18px}.modalgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.field{display:grid;gap:6px;margin-bottom:8px}.field label{font-size:12px;color:var(--muted)}.field textarea{min-height:90px;resize:vertical}.modalactions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;position:sticky;bottom:-12px;background:#0f1722;padding:10px 0 12px}
 .toast{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);background:#0f1722;border:1px solid var(--line);color:var(--text);padding:12px 14px;border-radius:14px;box-shadow:0 16px 40px rgba(0,0,0,.4);display:none;z-index:30;max-width:min(92vw,560px)}
 .lock{position:fixed;inset:0;z-index:99;background:radial-gradient(circle at top,#13253a 0%,#091019 62%,#060b11 100%);display:none;align-items:center;justify-content:center;padding:14px}.lock-card{width:min(100%,420px);background:rgba(16,27,38,.98);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 20px 60px rgba(0,0,0,.5)}.lock-card h2{margin:0 0 8px;font-size:22px}.lock-card p{margin:0 0 14px;color:var(--muted);line-height:1.6}.lock-card input{width:100%;min-height:52px;border-radius:14px;border:1px solid var(--line);background:#0d151f;color:var(--text);padding:12px 14px;font-size:18px;letter-spacing:.2em;text-align:center}.lock-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
-@media (max-width:860px){.main{grid-template-columns:1fr}.controls{grid-template-columns:repeat(3,1fr)}.day{min-height:84px}}
-@media (max-width:460px){.wrap{padding:8px}.header{align-items:flex-start}.brand img{width:38px;height:38px}.chip{display:none}.day{min-height:76px;padding:5px}.date,.sale,.people{font-size:11px}.controls{grid-template-columns:repeat(6,minmax(0,1fr));gap:5px}.controls .cbtn{min-height:38px;padding:0 2px;border-radius:10px;font-size:11px;line-height:1.1}.modalback{align-items:flex-start;padding:8px;padding-top:max(8px,env(safe-area-inset-top));padding-bottom:max(8px,env(safe-area-inset-bottom))}.modal{max-height:calc(100dvh - 16px);border-radius:16px;scroll-padding-bottom:82px}.modalactions .cbtn{min-height:42px}.row,.modalgrid,.lock-actions,.filters{grid-template-columns:1fr}.split{grid-template-columns:1fr}.month{font-size:16px}}
+@media (max-width:860px){.main{grid-template-columns:1fr}.controls{grid-template-columns:repeat(4,1fr)}.day{min-height:84px}}
+@media (max-width:460px){.wrap{padding:8px}.header{align-items:flex-start}.brand img{width:38px;height:38px}.chip{display:none}.day{min-height:76px;padding:5px}.date,.sale,.people{font-size:11px}.controls{grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}.controls .cbtn{min-height:38px;padding:0 2px;border-radius:10px;font-size:10px;line-height:1.1}.modalback{align-items:flex-start;padding:8px;padding-top:max(8px,env(safe-area-inset-top));padding-bottom:max(8px,env(safe-area-inset-bottom))}.modal{max-height:calc(100dvh - 16px);border-radius:16px;scroll-padding-bottom:82px}.modalactions .cbtn{min-height:42px}.row,.modalgrid,.lock-actions,.filters{grid-template-columns:1fr}.split{grid-template-columns:1fr}.month{font-size:16px}}
 </style>
 </head>
 <body>
@@ -63,6 +63,7 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
       <button class="cbtn" id="loadBtn" type="button">読込</button>
       <button class="cbtn warn" id="exportBtn" type="button">書出</button>
       <button class="cbtn warn" id="csvBtn" type="button">CSV</button>
+      <button class="cbtn primary" id="aiCopyBtn" type="button">AIコピー</button>
       <button class="cbtn danger" id="clearBtn" type="button">全消去</button>
     </div>
   </section>
@@ -125,6 +126,24 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
     <div class="modalhead"><h3 id="historyTitle">顧客履歴</h3><button class="xbtn" id="closeHistoryBtn" type="button">×</button></div>
     <div class="row"><div class="stat"><div class="label">合計売上</div><div class="value" id="historySales">-</div></div><div class="stat"><div class="label">来店回数</div><div class="value" id="historyVisits">-</div></div></div>
     <div class="compact-list" id="historyList"></div>
+  </div>
+</div>
+
+<div class="modalback" id="copyBack" style="align-items:center">
+  <div class="modal">
+    <div class="modalhead"><h3>AI用コピー</h3><button class="xbtn" id="closeCopyBtn" type="button">×</button></div>
+    <div class="modalgrid">
+      <div class="field"><label>範囲</label><select id="copyMode"><option value="day">選択中の日</option><option value="month">表示中の月</option><option value="last">過去N日</option><option value="range">任意期間</option></select></div>
+      <div class="field"><label>過去N日</label><input id="copyDays" type="number" min="1" step="1" value="7" /></div>
+    </div>
+    <div class="modalgrid">
+      <div class="field"><label>開始日</label><input id="copyStart" type="date" /></div>
+      <div class="field"><label>終了日</label><input id="copyEnd" type="date" /></div>
+    </div>
+    <label class="checkrow"><input id="copyIncludeDetails" type="checkbox" checked />顧客ごとの詳細も含める</label>
+    <label class="checkrow"><input id="copyIncludePhotos" type="checkbox" checked />写真リンクも含める</label>
+    <div class="field"><label>コピー内容</label><textarea id="copyOutput" readonly style="min-height:260px"></textarea></div>
+    <div class="modalactions"><button class="cbtn primary" id="copyTextBtn" type="button">コピー</button><button class="cbtn" id="refreshCopyBtn" type="button">再作成</button></div>
   </div>
 </div>
 
@@ -198,6 +217,20 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
   function datesOfMonth(y, m) {
     const end = new Date(y, m + 1, 0).getDate();
     return Array.from({ length: end }, (_, i) => `${y}-${pad(m + 1)}-${pad(i + 1)}`);
+  }
+  function parseDate(date) {
+    return new Date(`${date}T00:00:00`);
+  }
+  function addDays(date, days) {
+    const d = parseDate(date);
+    d.setDate(d.getDate() + days);
+    return isoDate(d);
+  }
+  function datesBetween(start, end) {
+    if (!start || !end || start > end) return [];
+    const dates = [];
+    for (let d = start; d <= end; d = addDays(d, 1)) dates.push(d);
+    return dates;
   }
   function renderCalendar() {
     $("monthLabel").textContent = `${currentYear}年${currentMonth + 1}月`;
@@ -497,6 +530,101 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
     a.click();
     URL.revokeObjectURL(a.href);
   }
+  function copyRangeDates() {
+    const mode = $("copyMode").value;
+    if (mode === "day") return [selectedDate];
+    if (mode === "month") return datesOfMonth(currentYear, currentMonth);
+    if (mode === "last") {
+      const end = $("copyEnd").value || selectedDate;
+      const days = Math.max(1, Number($("copyDays").value || 1));
+      return datesBetween(addDays(end, -(days - 1)), end);
+    }
+    return datesBetween($("copyStart").value, $("copyEnd").value);
+  }
+  function buildAiCopyText() {
+    const dates = copyRangeDates();
+    const rows = dates.map((date) => [date, normalizeItem(data[date])]).filter(([, item]) =>
+      item.name || item.sale || item.people || item.memo || item.notes.length || item.nextDate || item.photoUrl
+    );
+    const totalSales = rows.reduce((sum, [, item]) => sum + Number(item.sale || 0), 0);
+    const totalPeople = rows.reduce((sum, [, item]) => sum + Number(item.people || 0), 0);
+    const customerMap = new Map();
+    for (const [date, item] of rows) {
+      const name = item.name || "名称未設定";
+      const row = customerMap.get(name) || { sales: 0, visits: 0, people: 0, dates: [] };
+      row.sales += Number(item.sale || 0);
+      row.people += Number(item.people || 0);
+      row.visits += 1;
+      row.dates.push({ date, item });
+      customerMap.set(name, row);
+    }
+    const customerRows = [...customerMap.entries()].sort((a, b) => b[1].sales - a[1].sales || b[1].visits - a[1].visits);
+    const includeDetails = $("copyIncludeDetails").checked;
+    const includePhotos = $("copyIncludePhotos").checked;
+    const start = dates[0] || "-";
+    const end = dates[dates.length - 1] || "-";
+    const lines = [
+      "Customer Note AI分析用データ",
+      `期間: ${start} 〜 ${end}`,
+      `対象日数: ${dates.length}日`,
+      `記録日数: ${rows.length}日`,
+      `総売上: ${money(totalSales)}`,
+      `総来店数: ${totalPeople}名`,
+      `平均日売上: ${rows.length ? money(Math.round(totalSales / rows.length)) : "¥0"}`,
+      `客単価目安: ${totalPeople ? money(Math.round(totalSales / totalPeople)) : "¥0"}`,
+      "",
+      "【日別】"
+    ];
+    if (!rows.length) lines.push("記録なし");
+    for (const [date, item] of rows) {
+      lines.push(`- ${date}: ${item.name || "名称未設定"} / 売上 ${money(item.sale)} / 来店 ${item.people || 0}名 / タグ ${(item.tags || []).join("・") || "なし"}`);
+      if (item.memo) lines.push(`  メモ: ${item.memo}`);
+      if (item.nextDate || item.reminder) lines.push(`  次回予定: ${item.nextDate || "日付未定"} ${item.reminder || ""}`.trim());
+      if (includePhotos && item.photoUrl) lines.push(`  写真: ${item.photoUrl}${item.photoMemo ? `（${item.photoMemo}）` : ""}`);
+      if (includeDetails && item.notes.length) lines.push(`  追記: ${item.notes.join(" / ")}`);
+    }
+    lines.push("", "【顧客別】");
+    if (!customerRows.length) lines.push("記録なし");
+    for (const [name, row] of customerRows) {
+      lines.push(`- ${name}: 来店 ${row.visits}回 / 合計 ${money(row.sales)} / 来店人数 ${row.people}名`);
+      if (includeDetails) {
+        for (const entry of row.dates) {
+          const item = entry.item;
+          const memo = item.memo || item.reminder || item.photoMemo || "";
+          lines.push(`  - ${entry.date}: ${money(item.sale)}${memo ? ` / ${memo}` : ""}`);
+        }
+      }
+    }
+    lines.push("", "このデータをもとに、売上傾向、重要顧客、次回フォロー、改善案を分析してください。");
+    return lines.join("\n");
+  }
+  function refreshCopyOutput() {
+    $("copyOutput").value = buildAiCopyText();
+  }
+  async function copyAiText() {
+    refreshCopyOutput();
+    const text = $("copyOutput").value;
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        $("copyOutput").focus();
+        $("copyOutput").select();
+        document.execCommand("copy");
+      }
+      showToast("AI用テキストをコピーしました");
+    } catch {
+      $("copyOutput").focus();
+      $("copyOutput").select();
+      showToast("コピーできない場合は選択中の文を手動でコピーしてください");
+    }
+  }
+  function openCopyModal() {
+    $("copyStart").value = `${currentYear}-${pad(currentMonth + 1)}-01`;
+    $("copyEnd").value = selectedDate;
+    refreshCopyOutput();
+    $("copyBack").style.display = "flex";
+  }
   function importJson() {
     const input = document.createElement("input");
     input.type = "file";
@@ -579,6 +707,7 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
     $("loadBtn").addEventListener("click", importJson);
     $("exportBtn").addEventListener("click", exportJson);
     $("csvBtn").addEventListener("click", exportCsv);
+    $("aiCopyBtn").addEventListener("click", openCopyModal);
     $("clearBtn").addEventListener("click", () => { $("confirmBack").style.display = "flex"; });
     $("closeModalBtn").addEventListener("click", closeModal);
     $("modalBack").addEventListener("click", (e) => { if (e.target.id === "modalBack") closeModal(); });
@@ -596,6 +725,14 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
     $("confirmClearBtn").addEventListener("click", () => { $("confirmBack").style.display = "none"; clearAll(); });
     $("closeHistoryBtn").addEventListener("click", () => { $("historyBack").style.display = "none"; });
     $("historyBack").addEventListener("click", (e) => { if (e.target.id === "historyBack") $("historyBack").style.display = "none"; });
+    $("closeCopyBtn").addEventListener("click", () => { $("copyBack").style.display = "none"; });
+    $("copyBack").addEventListener("click", (e) => { if (e.target.id === "copyBack") $("copyBack").style.display = "none"; });
+    $("copyTextBtn").addEventListener("click", copyAiText);
+    $("refreshCopyBtn").addEventListener("click", refreshCopyOutput);
+    ["copyMode", "copyDays", "copyStart", "copyEnd", "copyIncludeDetails", "copyIncludePhotos"].forEach((id) => {
+      $(id).addEventListener("input", refreshCopyOutput);
+      $(id).addEventListener("change", refreshCopyOutput);
+    });
     $("applyLockBtn").addEventListener("click", applyLockSettings);
     $("unlockBtn").addEventListener("click", () => {
       if ($("pinInput").value === localStorage.getItem(PIN_KEY)) showApp();
