@@ -140,11 +140,12 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
       <div class="field"><label>範囲</label><select id="copyMode"><option value="day">選択中の日</option><option value="month">表示中の月</option><option value="last">過去N日</option><option value="range">任意期間</option></select></div>
       <div class="field"><label>店舗</label><select id="copyStore"><option value="all">全店舗</option><option value="A">A店舗</option><option value="B">B店舗</option><option value="C">C店舗</option><option value="D">D店舗</option></select></div>
     </div>
-    <div class="field"><label>過去N日</label><input id="copyDays" type="number" min="1" step="1" value="7" /></div>
+    <div class="field" id="copyDaysField"><label>過去N日</label><input id="copyDays" type="number" min="1" step="1" value="7" /></div>
     <div class="modalgrid">
-      <div class="field"><label>開始日</label><input id="copyStart" type="date" /></div>
-      <div class="field"><label>終了日</label><input id="copyEnd" type="date" /></div>
+      <div class="field" id="copyStartField"><label>開始日</label><input id="copyStart" type="date" /></div>
+      <div class="field" id="copyEndField"><label>終了日</label><input id="copyEnd" type="date" /></div>
     </div>
+    <div class="tiny" id="copyRangeHelp"></div>
     <label class="checkrow"><input id="copyIncludeDetails" type="checkbox" checked />顧客ごとの詳細も含める</label>
     <label class="checkrow"><input id="copyIncludePhotos" type="checkbox" checked />写真リンクも含める</label>
     <div class="field"><label>コピー内容</label><textarea id="copyOutput" readonly style="min-height:260px"></textarea></div>
@@ -814,7 +815,22 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
     return lines.join("\n");
   }
   function refreshCopyOutput() {
+    updateCopyFields();
     $("copyOutput").value = buildAiCopyText();
+  }
+  function updateCopyFields() {
+    const mode = $("copyMode").value;
+    $("copyDaysField").style.display = mode === "last" ? "grid" : "none";
+    $("copyStartField").style.display = mode === "range" ? "grid" : "none";
+    $("copyEndField").style.display = mode === "last" || mode === "range" ? "grid" : "none";
+    const dates = copyRangeDates();
+    const label = {
+      day: `選択中の日: ${selectedDate}`,
+      month: `表示中の月: ${currentYear}年${currentMonth + 1}月`,
+      last: dates.length ? `対象期間: ${dates[0]} 〜 ${dates[dates.length - 1]}（${dates.length}日分）` : "対象期間を確認してください",
+      range: dates.length ? `対象期間: ${dates[0]} 〜 ${dates[dates.length - 1]}（${dates.length}日分）` : "開始日と終了日を選んでください"
+    };
+    $("copyRangeHelp").textContent = label[mode] || "";
   }
   async function copyAiText() {
     refreshCopyOutput();
@@ -848,6 +864,7 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
     $("copyStart").value = `${currentYear}-${pad(currentMonth + 1)}-01`;
     $("copyEnd").value = selectedDate;
     $("copyStore").value = selectedStore;
+    updateCopyFields();
     refreshCopyOutput();
     $("copyBack").style.display = "flex";
   }
