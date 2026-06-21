@@ -18,11 +18,11 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
 .wrap{max-width:1040px;margin:0 auto;padding:12px 12px 28px}.top,.panel{background:rgba(16,27,38,.96);border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 44px rgba(0,0,0,.28)}.top{padding:12px}
 .header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}.brand{display:flex;align-items:center;gap:10px}.brand img{width:44px;height:44px;border-radius:12px}.title h1{margin:0;font-size:21px;line-height:1.1}.title span{display:block;margin-top:3px;font-size:12px;color:var(--muted)}.chip{font-size:12px;padding:7px 10px;border-radius:999px;background:rgba(24,199,191,.12);border:1px solid rgba(24,199,191,.25);white-space:nowrap}
 .nav{display:grid;grid-template-columns:52px 1fr 52px;align-items:center;gap:8px}.btn{min-height:48px;border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:14px;font-size:20px}.month{text-align:center;font-size:18px;font-weight:900}
-.weekdays,.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}.weekday{text-align:center;font-size:12px;color:var(--muted);padding:8px 0 3px}.day{min-height:94px;background:var(--calendar-day,var(--panel2));border:1px solid var(--calendar-line,var(--line));border-radius:12px;padding:7px;display:flex;flex-direction:column;justify-content:space-between;text-align:left;color:inherit}.day.empty{background:transparent;border:1px dashed rgba(38,57,77,.35);cursor:default}.day.selected{outline:2px solid var(--calendar-selected,var(--accent))}.date{font-size:13px;font-weight:900}.sale{font-size:12px;font-weight:900}.people{font-size:12px;color:var(--calendar-text,var(--accent2));font-weight:900}.bar{height:6px;width:100%;border-radius:999px;background:rgba(255,255,255,.07);overflow:hidden}.bar span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--calendar-selected,var(--accent)),var(--calendar-text,var(--accent2)))}
+.weekdays,.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}.weekday{text-align:center;font-size:12px;color:var(--muted);padding:8px 0 3px}.weekday.holiday{color:#ff9f9f}.day{min-height:94px;background:var(--calendar-day,var(--panel2));border:1px solid var(--calendar-line,var(--line));border-radius:12px;padding:7px;display:flex;flex-direction:column;justify-content:space-between;text-align:left;color:inherit}.day.empty{background:transparent;border:1px dashed rgba(38,57,77,.35);cursor:default}.day.holiday{background:linear-gradient(180deg,rgba(255,113,109,.16),var(--calendar-day,var(--panel2)));border-color:rgba(255,113,109,.42)}.day.holiday .date{color:#ffb1ad}.day.selected{outline:2px solid var(--calendar-selected,var(--accent))}.date{font-size:13px;font-weight:900}.sale{font-size:12px;font-weight:900}.people{font-size:12px;color:var(--calendar-text,var(--accent2));font-weight:900}.store-mark{display:inline-flex;margin-top:4px;padding:2px 5px;border-radius:999px;background:rgba(255,255,255,.08);font-size:10px;color:var(--muted);font-weight:900}.bar{height:6px;width:100%;border-radius:999px;background:rgba(255,255,255,.07);overflow:hidden}.bar span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--calendar-selected,var(--accent)),var(--calendar-text,var(--accent2)))}
 .controls{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:10px}.cbtn{min-height:46px;border:1px solid transparent;border-radius:14px;background:linear-gradient(135deg,#20354d,#162334);color:var(--text);font-weight:800}.cbtn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#031515}.cbtn.warn{background:linear-gradient(135deg,#ffd46b,#ffb24f);color:#2a1900}.cbtn.danger{background:linear-gradient(135deg,#ff8a7a,#ff5f6a);color:white}.cbtn.ghost{border-color:var(--line);background:#1a2635}
 .main{display:grid;grid-template-columns:1.25fr .95fr;gap:10px;margin-top:10px}.panel{padding:12px}.panel h2{margin:0 0 10px;font-size:16px}.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.stat,.result,.item{background:var(--panel2);border:1px solid var(--line);border-radius:14px}.stat{padding:10px}.label{font-size:11px;color:var(--muted);margin-bottom:4px}.value{font-size:20px;font-weight:900}.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.tag{font-size:12px;padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
 .list{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:8px}.item{display:flex;gap:10px;align-items:flex-start;padding:10px}.dot{width:10px;height:10px;border-radius:50%;margin-top:5px;background:linear-gradient(180deg,var(--accent),var(--accent2))}.item strong{display:block;font-size:13px;margin-bottom:3px}.item span,.tiny{font-size:12px;color:var(--muted);line-height:1.55}
-.searchbox{display:grid;gap:8px}.searchbox input,.searchbox select,.field input,.field textarea{width:100%;min-height:46px;border-radius:14px;border:1px solid var(--line);background:#0d151f;color:var(--text);padding:11px 12px}.split{display:grid;grid-template-columns:1fr 112px;gap:8px}.filters{display:grid;grid-template-columns:1fr 1fr;gap:8px}.checkrow{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:12px}.checkrow input{width:auto;min-height:auto}.results{margin-top:8px;display:grid;gap:8px;max-height:270px;overflow:auto}.result{padding:10px;text-align:left;color:inherit}.result b{display:block;font-size:14px;margin-bottom:4px}.result small{color:var(--muted);display:block;line-height:1.45}
+.searchbox{display:grid;gap:8px}.searchbox input,.searchbox select,.field input,.field textarea,.field select,.filters input,.filters select{width:100%;min-height:46px;border-radius:14px;border:1px solid var(--line);background:#0d151f;color:var(--text);padding:11px 12px}.split{display:grid;grid-template-columns:1fr 112px;gap:8px}.filters{display:grid;grid-template-columns:1fr 1fr;gap:8px}.checkrow{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:12px}.checkrow input{width:auto;min-height:auto}.results{margin-top:8px;display:grid;gap:8px;max-height:270px;overflow:auto}.result{padding:10px;text-align:left;color:inherit}.result b{display:block;font-size:14px;margin-bottom:4px}.result small{color:var(--muted);display:block;line-height:1.45}
 .mini-actions,.quicktags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.mini-btn,.tagpick{border:1px solid var(--line);background:#1a2635;color:var(--text);border-radius:999px;padding:7px 10px;font-size:12px;font-weight:800}.photo-link{display:inline-flex;margin-top:6px;color:var(--accent2);font-size:12px;font-weight:800;text-decoration:none}.photo-link:hover{text-decoration:underline}.subpanel{margin-top:10px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:10px}.compact-list{display:grid;gap:7px;margin-top:8px}.compact-row{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:7px;font-size:12px}.compact-row:last-child{border-bottom:0;padding-bottom:0}.compact-row b{font-size:12px}.compact-row span{color:var(--muted);text-align:right}.reminder-badge{display:inline-flex;margin-top:5px;padding:3px 6px;border-radius:999px;background:rgba(255,212,107,.14);color:#ffe6a0;font-size:10px;font-weight:900}
 .modalback{position:fixed;inset:0;background:rgba(0,0,0,.58);display:none;align-items:flex-end;justify-content:center;padding:12px;z-index:20;overflow-y:auto;overscroll-behavior:contain}.modal{width:min(100%,720px);max-height:calc(100dvh - 24px);overflow-y:auto;-webkit-overflow-scrolling:touch;background:#0f1722;border:1px solid var(--line);border-radius:18px;padding:12px;box-shadow:0 22px 54px rgba(0,0,0,.45)}.modalhead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px;position:sticky;top:-12px;background:#0f1722;padding-top:12px;z-index:2}.modalhead h3{margin:0;font-size:16px}.xbtn{min-width:42px;min-height:42px;border:none;border-radius:12px;background:#1b2837;color:var(--text);font-size:18px}.modalgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.field{display:grid;gap:6px;margin-bottom:8px}.field label{font-size:12px;color:var(--muted)}.field textarea{min-height:90px;resize:vertical}.modalactions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;position:sticky;bottom:-12px;background:#0f1722;padding:10px 0 12px}
 .toast{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);background:#0f1722;border:1px solid var(--line);color:var(--text);padding:12px 14px;border-radius:14px;box-shadow:0 16px 40px rgba(0,0,0,.4);display:none;z-index:30;max-width:min(92vw,560px)}
@@ -55,7 +55,8 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
       <div class="chip">自動保存 / 検索対応</div>
     </div>
     <div class="nav"><button class="btn" id="prevMonthBtn" type="button">‹</button><div class="month" id="monthLabel"></div><button class="btn" id="nextMonthBtn" type="button">›</button></div>
-    <div class="weekdays"><div class="weekday">日</div><div class="weekday">月</div><div class="weekday">火</div><div class="weekday">水</div><div class="weekday">木</div><div class="weekday">金</div><div class="weekday">土</div></div>
+    <div class="filters" style="margin-top:8px"><select id="storeSelect"><option value="A">A店舗</option><option value="B">B店舗</option><option value="C">C店舗</option><option value="D">D店舗</option></select><button class="cbtn ghost" id="compareStoresBtn" type="button">店舗比較</button></div>
+    <div class="weekdays"><div class="weekday holiday">日</div><div class="weekday">月</div><div class="weekday">火</div><div class="weekday">水</div><div class="weekday">木</div><div class="weekday">金</div><div class="weekday">土</div></div>
     <div class="grid" id="calendarGrid"></div>
     <div class="controls">
       <button class="cbtn primary" id="addRecordBtn" type="button">記録追加</button>
@@ -90,6 +91,7 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
       </div>
       <h2 style="margin-top:14px">月まとめ</h2>
       <div class="row"><div class="stat"><div class="label">月売上</div><div class="value" id="monthSales">-</div></div><div class="stat"><div class="label">記録日数</div><div class="value" id="monthVisits">-</div></div></div>
+      <div class="subpanel"><h2>店舗比較</h2><div class="compact-list" id="storeCompareList"></div></div>
       <canvas id="barChart" width="800" height="260" style="width:100%;margin-top:10px;background:#0b1118;border:1px solid var(--line);border-radius:14px"></canvas>
       <div class="subpanel"><h2>顧客ランキング</h2><div class="compact-list" id="rankingList"></div></div>
       <div class="subpanel"><h2>表示設定</h2><div class="filters"><div class="field"><label>日付枠</label><input id="calendarDayColor" type="color" value="#162334" /></div><div class="field"><label>枠線</label><input id="calendarLineColor" type="color" value="#26394d" /></div></div><div class="filters"><div class="field"><label>選択色</label><input id="calendarSelectColor" type="color" value="#18c7bf" /></div><div class="field"><label>文字アクセント</label><input id="calendarTextColor" type="color" value="#6cf1d6" /></div></div><button class="cbtn ghost" id="resetCalendarColorBtn" type="button" style="width:100%;margin-top:8px">色を初期化</button></div>
@@ -101,7 +103,8 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
 <div class="modalback" id="modalBack">
   <div class="modal">
     <div class="modalhead"><h3 id="modalTitle">記録を追加</h3><button class="xbtn" id="closeModalBtn" type="button">×</button></div>
-    <div class="modalgrid"><div class="field"><label>日付</label><input id="fDate" type="date" /></div><div class="field"><label>顧客名</label><input id="fName" type="text" placeholder="例: 山田太郎" /></div></div>
+    <div class="modalgrid"><div class="field"><label>日付</label><input id="fDate" type="date" /></div><div class="field"><label>店舗</label><select id="fStore"><option value="A">A店舗</option><option value="B">B店舗</option><option value="C">C店舗</option><option value="D">D店舗</option></select></div></div>
+    <div class="field"><label>顧客名</label><input id="fName" type="text" placeholder="例: 山田太郎" /></div>
     <div class="modalgrid"><div class="field"><label>売上</label><input id="fSale" type="number" min="0" step="1" placeholder="例: 49000" /></div><div class="field"><label>来店数</label><input id="fPeople" type="number" min="0" step="1" placeholder="例: 13" /></div></div>
     <div class="field"><label>タグ / 特徴（カンマ区切り）</label><input id="fTags" type="text" placeholder="常連, カラオケ多め, ボトルあり" /></div>
     <div class="quicktags" id="quickTags"></div>
@@ -158,11 +161,14 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
   const AUTO_LOCK_KEY = "customer_note_auto_lock_minutes_v1";
   const CALENDAR_COLOR_KEY = "customer_note_calendar_colors_v1";
   const DEFAULT_CALENDAR_COLORS = { day: "#162334", line: "#26394d", selected: "#18c7bf", text: "#6cf1d6" };
+  const STORE_KEY = "customer_note_selected_store_v1";
+  const STORES = ["A", "B", "C", "D"];
   const QUICK_TAGS = ["常連", "新規", "VIP", "ボトルあり", "要フォロー", "誕生日", "同伴", "カラオケ"];
   const today = new Date();
   let currentYear = today.getFullYear();
   let currentMonth = today.getMonth();
   let selectedDate = isoDate(today);
+  let selectedStore = localStorage.getItem(STORE_KEY) || "A";
   let data = loadData();
   let lastBackup = null;
   let autoLockTimer = null;
@@ -248,6 +254,64 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
       notes: Array.isArray(item.notes) ? item.notes : []
     };
   }
+  function isStoreBundle(value) {
+    return !!value && typeof value === "object" && !!value.stores;
+  }
+  function emptyItem() {
+    return normalizeItem({});
+  }
+  function hasContent(item) {
+    const v = normalizeItem(item);
+    return !!(v.name || v.sale || v.people || v.tags.length || v.nextDate || v.reminder || v.photoUrl || v.photoMemo || v.memo || v.notes.length);
+  }
+  function getRecord(date, store = selectedStore) {
+    const raw = data[date];
+    if (!raw) return emptyItem();
+    if (isStoreBundle(raw)) return normalizeItem(raw.stores?.[store]);
+    return store === "A" ? normalizeItem(raw) : emptyItem();
+  }
+  function hasRecord(date, store = selectedStore) {
+    return hasContent(getRecord(date, store));
+  }
+  function getStoresForDate(date) {
+    const raw = data[date];
+    if (!raw) return [];
+    if (isStoreBundle(raw)) return STORES.filter((store) => hasContent(raw.stores?.[store]));
+    return hasContent(raw) ? ["A"] : [];
+  }
+  function setRecord(date, store, item) {
+    const raw = data[date];
+    const stores = isStoreBundle(raw) ? { ...raw.stores } : {};
+    if (raw && !isStoreBundle(raw) && hasContent(raw)) stores.A = normalizeItem(raw);
+    stores[store] = normalizeItem(item);
+    data[date] = { stores };
+  }
+  function removeRecord(date, store) {
+    const raw = data[date];
+    if (!raw) return null;
+    if (!isStoreBundle(raw)) {
+      if (store !== "A") return null;
+      const backup = JSON.parse(JSON.stringify(raw));
+      delete data[date];
+      return backup;
+    }
+    const backup = raw.stores?.[store] ? JSON.parse(JSON.stringify(raw.stores[store])) : null;
+    if (!backup) return null;
+    delete raw.stores[store];
+    if (!getStoresForDate(date).length) delete data[date];
+    return backup;
+  }
+  function allRecords(store = selectedStore) {
+    const rows = [];
+    for (const date of Object.keys(data)) {
+      const stores = store === "all" ? getStoresForDate(date) : [store];
+      for (const s of stores) {
+        const item = getRecord(date, s);
+        if (hasContent(item)) rows.push({ date, store: s, item });
+      }
+    }
+    return rows;
+  }
 
   function datesOfMonth(y, m) {
     const end = new Date(y, m + 1, 0).getDate();
@@ -267,6 +331,55 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
     for (let d = start; d <= end; d = addDays(d, 1)) dates.push(d);
     return dates;
   }
+  function nthMonday(year, monthIndex, nth) {
+    const first = new Date(year, monthIndex, 1);
+    const offset = (8 - first.getDay()) % 7;
+    return 1 + offset + (nth - 1) * 7;
+  }
+  function equinoxDay(year, type) {
+    return type === "spring"
+      ? Math.floor(20.8431 + 0.242194 * (year - 1980) - Math.floor((year - 1980) / 4))
+      : Math.floor(23.2488 + 0.242194 * (year - 1980) - Math.floor((year - 1980) / 4));
+  }
+  function japaneseHolidayNames(year) {
+    const list = new Map();
+    const add = (m, d, name) => list.set(`${year}-${pad(m)}-${pad(d)}`, name);
+    add(1, 1, "元日");
+    add(1, nthMonday(year, 0, 2), "成人の日");
+    add(2, 11, "建国記念の日");
+    add(2, 23, "天皇誕生日");
+    add(3, equinoxDay(year, "spring"), "春分の日");
+    add(4, 29, "昭和の日");
+    add(5, 3, "憲法記念日");
+    add(5, 4, "みどりの日");
+    add(5, 5, "こどもの日");
+    add(7, nthMonday(year, 6, 3), "海の日");
+    add(8, 11, "山の日");
+    add(9, nthMonday(year, 8, 3), "敬老の日");
+    add(9, equinoxDay(year, "autumn"), "秋分の日");
+    add(10, nthMonday(year, 9, 2), "スポーツの日");
+    add(11, 3, "文化の日");
+    add(11, 23, "勤労感謝の日");
+    const dates = [...list.keys()].sort();
+    for (const date of dates) {
+      if (parseDate(date).getDay() === 0) {
+        let sub = addDays(date, 1);
+        while (list.has(sub)) sub = addDays(sub, 1);
+        list.set(sub, "振替休日");
+      }
+    }
+    const sorted = [...list.keys()].sort();
+    for (let i = 0; i < sorted.length - 1; i++) {
+      const next = addDays(sorted[i], 1);
+      if (next < sorted[i + 1] && addDays(next, 1) === sorted[i + 1]) list.set(next, "国民の休日");
+    }
+    return list;
+  }
+  function holidayName(date) {
+    const d = parseDate(date);
+    if (d.getDay() === 0) return "日曜";
+    return japaneseHolidayNames(Number(date.slice(0, 4))).get(date) || "";
+  }
   function renderCalendar() {
     $("monthLabel").textContent = `${currentYear}年${currentMonth + 1}月`;
     const grid = $("calendarGrid");
@@ -274,18 +387,21 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
     const firstDay = new Date(currentYear, currentMonth, 1).getDay();
     for (let i = 0; i < firstDay; i++) grid.insertAdjacentHTML("beforeend", '<button class="day empty" type="button" disabled></button>');
     const dates = datesOfMonth(currentYear, currentMonth);
-    const maxSale = Math.max(1, ...dates.map((d) => Number(data[d]?.sale || 0)));
+    const maxSale = Math.max(1, ...dates.map((d) => Number(getRecord(d).sale || 0)));
     for (const date of dates) {
-      const item = data[date] ? normalizeItem(data[date]) : null;
-      const hasDue = Object.values(data).some((v) => normalizeItem(v).nextDate === date);
+      const item = hasRecord(date) ? getRecord(date) : null;
+      const stores = getStoresForDate(date);
+      const hasDue = allRecords("all").some(({ item }) => item.nextDate === date);
+      const holiday = holidayName(date);
       const day = Number(date.slice(8, 10));
       const width = item ? Math.round((Number(item.sale || 0) / maxSale) * 100) : 0;
       const saleText = item ? shortMoney(item.sale) : "";
       const peopleText = item ? `${item.people || 0}名` : "";
       grid.insertAdjacentHTML("beforeend", `
-        <button class="day ${date === selectedDate ? "selected" : ""}" data-date="${date}" type="button">
+        <button class="day ${date === selectedDate ? "selected" : ""} ${holiday ? "holiday" : ""}" data-date="${date}" type="button" title="${escapeHtml(holiday)}">
           <div class="date">${day}</div>
           <div><div class="sale">${saleText}</div><div class="people">${peopleText}</div></div>
+          ${stores.length > 1 ? `<div class="store-mark">${stores.join("/")}</div>` : ""}
           ${hasDue ? '<div class="reminder-badge">予定</div>' : ""}
           <div class="bar"><span style="width:${width}%"></span></div>
         </button>`);
@@ -294,8 +410,8 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
   }
   function renderDetail(date) {
     selectedDate = date;
-    const item = normalizeItem(data[date]);
-    $("detailTitle").textContent = `${Number(date.slice(5, 7))}月${Number(date.slice(8, 10))}日の詳細`;
+    const item = getRecord(date);
+    $("detailTitle").textContent = `${Number(date.slice(5, 7))}月${Number(date.slice(8, 10))}日の詳細（${selectedStore}店舗）`;
     $("saleValue").textContent = item.sale ? money(item.sale) : "-";
     $("peopleValue").textContent = item.people ? `${item.people}名` : "-";
     $("tagArea").innerHTML = (item.tags || []).map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join("") || '<span class="tag">タグなし</span>';
@@ -316,9 +432,10 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
     updateRankings();
     updateSelectedCustomerPanel(date);
   }
-  function fillModal(date) {
-    const item = normalizeItem(data[date]);
+  function fillModal(date, store = selectedStore) {
+    const item = getRecord(date, store);
     $("fDate").value = date;
+    $("fStore").value = store;
     $("fName").value = item.name || "";
     $("fSale").value = item.sale || "";
     $("fPeople").value = item.people || "";
@@ -333,14 +450,18 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
   function selectDate(date) { renderDetail(date); }
   function openModal(date) {
     fillModal(date || selectedDate);
-    $("modalTitle").textContent = data[date || selectedDate] ? "記録を編集" : "記録を追加";
+    $("modalTitle").textContent = hasRecord(date || selectedDate) ? "記録を編集" : "記録を追加";
     $("modalBack").style.display = "flex";
   }
   function closeModal() { $("modalBack").style.display = "none"; }
   function saveRecord() {
     const date = $("fDate").value;
     if (!date) { alert("日付を入力してください"); return; }
-    data[date] = {
+    const store = $("fStore").value;
+    selectedStore = store;
+    $("storeSelect").value = store;
+    localStorage.setItem(STORE_KEY, selectedStore);
+    setRecord(date, store, {
       name: $("fName").value.trim(),
       sale: Number($("fSale").value || 0),
       people: Number($("fPeople").value || 0),
@@ -351,7 +472,7 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
       photoMemo: $("fPhotoMemo").value.trim(),
       memo: $("fMemo").value.trim(),
       notes: $("fNotes").value.split(/\n+/).map((s) => s.trim()).filter(Boolean)
-    };
+    });
     const d = new Date(`${date}T00:00:00`);
     currentYear = d.getFullYear();
     currentMonth = d.getMonth();
@@ -362,14 +483,14 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
   }
   function deleteRecord() {
     const date = $("fDate").value;
-    if (!date || !data[date]) return;
-    const backup = JSON.parse(JSON.stringify(data[date]));
-    delete data[date];
+    const store = $("fStore").value;
+    if (!date || !hasRecord(date, store)) return;
+    const backup = removeRecord(date, store);
     saveData();
     closeModal();
     renderDetail(date);
     showToast("削除しました", () => {
-      data[date] = backup;
+      setRecord(date, store, backup);
       saveData();
       renderDetail(date);
       hideToast();
@@ -377,7 +498,7 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
   }
   function updateTagFilter() {
     const tags = new Set();
-    Object.values(data).forEach((v) => (v.tags || []).forEach((t) => tags.add(t)));
+    allRecords(selectedStore).forEach(({ item }) => (item.tags || []).forEach((t) => tags.add(t)));
     const current = $("tagFilter").value;
     $("tagFilter").innerHTML = '<option value="">全タグ</option>' + [...tags].sort().map((t) => `<option value="${escapeHtml(t)}">${escapeHtml(t)}</option>`).join("");
     $("tagFilter").value = current;
@@ -403,7 +524,7 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
     const minSale = Number($("minSaleFilter").value || 0);
     const photoOnly = $("photoOnlyFilter").checked;
     const memoOnly = $("memoOnlyFilter").checked;
-    const rows = Object.entries(data).map(([date, item]) => [date, normalizeItem(item)]).filter(([date, item]) =>
+    const rows = allRecords(selectedStore).map(({ date, item }) => [date, item]).filter(([date, item]) =>
       (!q || searchText(item).includes(q)) &&
       (!tag || (item.tags || []).includes(tag)) &&
       (!month || date.startsWith(month)) &&
@@ -426,17 +547,45 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
     let sales = 0;
     let count = 0;
     for (const d of dates) {
-      if (data[d]) {
-        sales += Number(data[d].sale || 0);
+      if (hasRecord(d)) {
+        sales += Number(getRecord(d).sale || 0);
         count++;
       }
     }
     $("monthSales").textContent = money(sales);
     $("monthVisits").textContent = `${count}日`;
     drawChart(dates);
+    updateStoreCompare();
+  }
+  function updateStoreCompare() {
+    const dates = datesOfMonth(currentYear, currentMonth);
+    const rows = STORES.map((store) => {
+      let sales = 0, days = 0, people = 0;
+      for (const date of dates) {
+        const item = getRecord(date, store);
+        if (hasContent(item)) {
+          sales += Number(item.sale || 0);
+          people += Number(item.people || 0);
+          days++;
+        }
+      }
+      return { store, sales, days, people };
+    });
+    $("storeCompareList").innerHTML = rows.map((r) => `
+      <button class="result" type="button" data-store="${r.store}">
+        <b>${r.store}店舗 ${r.store === selectedStore ? "（表示中）" : ""}</b>
+        <small>月売上 ${money(r.sales)} / 記録 ${r.days}日 / 来店 ${r.people}名</small>
+      </button>`).join("");
+    $("storeCompareList").querySelectorAll("[data-store]").forEach((btn) => btn.addEventListener("click", () => switchStore(btn.dataset.store)));
+  }
+  function switchStore(store) {
+    selectedStore = store;
+    localStorage.setItem(STORE_KEY, selectedStore);
+    $("storeSelect").value = selectedStore;
+    renderDetail(selectedDate);
   }
   function updateReminders() {
-    const rows = Object.entries(data).map(([date, item]) => [date, normalizeItem(item)])
+    const rows = allRecords(selectedStore).map(({ date, item }) => [date, item])
       .filter(([, item]) => item.nextDate || item.reminder)
       .sort((a, b) => (a[1].nextDate || "9999-99-99").localeCompare(b[1].nextDate || "9999-99-99"))
       .slice(0, 6);
@@ -449,8 +598,7 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
   }
   function customerTotals() {
     const map = new Map();
-    for (const [date, raw] of Object.entries(data)) {
-      const item = normalizeItem(raw);
+    for (const { date, item } of allRecords(selectedStore)) {
       const name = item.name || "名称未設定";
       const row = map.get(name) || { name, sales: 0, visits: 0, dates: [] };
       row.sales += Number(item.sale || 0);
@@ -470,7 +618,7 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
     $("rankingList").querySelectorAll("[data-name]").forEach((btn) => btn.addEventListener("click", () => showHistory(btn.dataset.name)));
   }
   function showHistory(name) {
-    const rows = Object.entries(data).map(([date, item]) => [date, normalizeItem(item)])
+    const rows = allRecords(selectedStore).map(({ date, item }) => [date, item])
       .filter(([, item]) => (item.name || "名称未設定") === name)
       .sort((a, b) => b[0].localeCompare(a[0]));
     const sales = rows.reduce((sum, [, item]) => sum + Number(item.sale || 0), 0);
@@ -486,9 +634,9 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
     $("historyBack").style.display = "flex";
   }
   function updateSelectedCustomerPanel(date = selectedDate) {
-    const item = normalizeItem(data[date]);
+    const item = getRecord(date);
     const name = item.name || "名称未設定";
-    const rows = Object.entries(data).map(([d, raw]) => [d, normalizeItem(raw)])
+    const rows = allRecords(selectedStore).map(({ date: d, item: row }) => [d, row])
       .filter(([, row]) => (row.name || "名称未設定") === name)
       .sort((a, b) => b[0].localeCompare(a[0]));
     const sales = rows.reduce((sum, [, row]) => sum + Number(row.sale || 0), 0);
@@ -515,7 +663,7 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
     c.height = Math.round(h * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, w, h);
-    const sales = dates.map((d) => Number(data[d]?.sale || 0));
+    const sales = dates.map((d) => Number(getRecord(d).sale || 0));
     const max = Math.max(1, ...sales);
     const left = 36, right = 10, top = 18, bottom = 28;
     ctx.fillStyle = "#0b1118";
@@ -554,11 +702,10 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
     return `"${String(v ?? "").replace(/"/g, '""')}"`;
   }
   function exportCsv() {
-    const header = ["日付", "顧客名", "売上", "来店数", "タグ", "次回来店予定", "予定メモ", "写真URL", "写真説明", "メモ", "追記メモ"];
-    const rows = Object.entries(data).sort((a, b) => a[0].localeCompare(b[0])).map(([date, raw]) => {
-      const item = normalizeItem(raw);
-      return [date, item.name, item.sale, item.people, (item.tags || []).join(" / "), item.nextDate, item.reminder, item.photoUrl, item.photoMemo, item.memo, (item.notes || []).join(" / ")].map(csvCell).join(",");
-    });
+    const header = ["日付", "店舗", "顧客名", "売上", "来店数", "タグ", "次回来店予定", "予定メモ", "写真URL", "写真説明", "メモ", "追記メモ"];
+    const rows = allRecords("all").sort((a, b) => a.date.localeCompare(b.date) || a.store.localeCompare(b.store)).map(({ date, store, item }) =>
+      [date, store, item.name, item.sale, item.people, (item.tags || []).join(" / "), item.nextDate, item.reminder, item.photoUrl, item.photoMemo, item.memo, (item.notes || []).join(" / ")].map(csvCell).join(",")
+    );
     const csv = "\uFEFF" + [header.map(csvCell).join(","), ...rows].join("\n");
     const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
     const a = document.createElement("a");
@@ -580,14 +727,14 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
   }
   function buildAiCopyText() {
     const dates = copyRangeDates();
-    const rows = dates.map((date) => [date, normalizeItem(data[date])]).filter(([, item]) =>
+    const rows = dates.flatMap((date) => allRecords("all").filter((row) => row.date === date)).filter(({ item }) =>
       item.name || item.sale || item.people || item.memo || item.notes.length || item.nextDate || item.photoUrl
     );
-    const totalSales = rows.reduce((sum, [, item]) => sum + Number(item.sale || 0), 0);
-    const totalPeople = rows.reduce((sum, [, item]) => sum + Number(item.people || 0), 0);
+    const totalSales = rows.reduce((sum, { item }) => sum + Number(item.sale || 0), 0);
+    const totalPeople = rows.reduce((sum, { item }) => sum + Number(item.people || 0), 0);
     const customerMap = new Map();
-    for (const [date, item] of rows) {
-      const name = item.name || "名称未設定";
+    for (const { date, store, item } of rows) {
+      const name = `${store}店舗:${item.name || "名称未設定"}`;
       const row = customerMap.get(name) || { sales: 0, visits: 0, people: 0, dates: [] };
       row.sales += Number(item.sale || 0);
       row.people += Number(item.people || 0);
@@ -613,8 +760,8 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
       "【日別】"
     ];
     if (!rows.length) lines.push("記録なし");
-    for (const [date, item] of rows) {
-      lines.push(`- ${date}: ${item.name || "名称未設定"} / 売上 ${money(item.sale)} / 来店 ${item.people || 0}名 / タグ ${(item.tags || []).join("・") || "なし"}`);
+    for (const { date, store, item } of rows) {
+      lines.push(`- ${date} ${store}店舗: ${item.name || "名称未設定"} / 売上 ${money(item.sale)} / 来店 ${item.people || 0}名 / タグ ${(item.tags || []).join("・") || "なし"}`);
       if (item.memo) lines.push(`  メモ: ${item.memo}`);
       if (item.nextDate || item.reminder) lines.push(`  次回予定: ${item.nextDate || "日付未定"} ${item.reminder || ""}`.trim());
       if (includePhotos && item.photoUrl) lines.push(`  写真: ${item.photoUrl}${item.photoMemo ? `（${item.photoMemo}）` : ""}`);
@@ -734,10 +881,12 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
   function bind() {
     $("prevMonthBtn").addEventListener("click", () => { currentMonth--; if (currentMonth < 0) { currentMonth = 11; currentYear--; } renderDetail(selectedDate); });
     $("nextMonthBtn").addEventListener("click", () => { currentMonth++; if (currentMonth > 11) { currentMonth = 0; currentYear++; } renderDetail(selectedDate); });
+    $("storeSelect").addEventListener("change", () => switchStore($("storeSelect").value));
+    $("compareStoresBtn").addEventListener("click", () => document.getElementById("storeCompareList").scrollIntoView({ behavior: "smooth", block: "center" }));
     $("addRecordBtn").addEventListener("click", () => openModal(selectedDate));
     $("editSelectedBtn").addEventListener("click", () => openModal(selectedDate));
     $("historyBtn").addEventListener("click", () => {
-      const name = normalizeItem(data[selectedDate]).name || "名称未設定";
+      const name = getRecord(selectedDate).name || "名称未設定";
       showHistory(name);
     });
     $("saveBtn").addEventListener("click", () => { saveData(); showToast("保存しました"); });
@@ -748,6 +897,8 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
     $("clearBtn").addEventListener("click", () => { $("confirmBack").style.display = "flex"; });
     $("closeModalBtn").addEventListener("click", closeModal);
     $("modalBack").addEventListener("click", (e) => { if (e.target.id === "modalBack") closeModal(); });
+    $("fStore").addEventListener("change", () => fillModal($("fDate").value || selectedDate, $("fStore").value));
+    $("fDate").addEventListener("change", () => fillModal($("fDate").value || selectedDate, $("fStore").value));
     $("saveRecordBtn").addEventListener("click", saveRecord);
     $("deleteRecordBtn").addEventListener("click", deleteRecord);
     $("searchBtn").addEventListener("click", updateSearchResults);
@@ -799,6 +950,7 @@ body{font-size:16px}button,input,select,textarea{font:inherit}button{cursor:poin
   renderQuickTags();
   refreshLockSettings();
   applyCalendarColors();
+  $("storeSelect").value = selectedStore;
   renderDetail(selectedDate);
   showLockIfNeeded();
 })();
